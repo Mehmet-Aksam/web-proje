@@ -1,3 +1,3 @@
 function mesajGoster() {
-    alert("Buton çalıştı!");
+    alert("Buton çalıştı !");
 }
