@@ -1,102 +1,41 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sorcik</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Quiz Platformu</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="top-strip"></div>
 
-    <h1>Son Web Sitem</h1>
-    <p>Bu bizim dönem projemizin başlangıç sayfası.</p>
-    <p>SANAYİİ</p>
-    <p>sinyaller ve sistemler</p>
+    <h1>Quiz Platformuna Hoşgeldiniz</h1>
+    <p class="aciklama">Bilgini test et, kendini geliştir!</p>
 
+    <div class="kategori-container">
 
-        <!-- Logo / Brand -->
-        <div class="brand">
-          <div class="brand-icon">
-            <div class="question-badge">?</div>
-            <span class="spark spark-1"></span>
-            <span class="spark spark-2"></span>
-          </div>
-
-          <div class="brand-copy">
-            <h1 class="brand-text">Sorcik</h1>
-            <p class="brand-subtitle">Sor, çöz, kazan</p>
-          </div>
+        <div class="kategori">
+            <h2>Ehliyet</h2>
+            <p>Trafik bilgini test et</p>
+            <button onclick="location.href='quiz.html'">Başla</button>
         </div>
 
-        <!-- Menü -->
-        <nav class="menu">
-          <a href="#" class="menu-item ">
-            <i class="fa-solid fa-trophy"></i>
-            <span>Turnuva</span>
-          </a>
-
-          <a href="#" class="menu-item">
-            <i class="fa-solid fa-music"></i>
-            <span>Müzik Quiz</span>
-          </a>
-
-          <a href="#" class="menu-item">
-            <i class="fa-solid fa-camera-retro"></i>
-            <span>Foto Quiz</span>
-          </a>
-
-          <a href="#" class="menu-item">
-            <i class="fa-regular fa-circle-question"></i>
-            <span>Trivia</span>
-          </a>
-
-          <a href="#" class="menu-item">
-            <i class="fa-solid fa-hashtag"></i>
-            <span>Number Quiz</span>
-          </a>
-
-          <a href="#" class="menu-item">
-            <i class="fa-solid fa-user-group"></i>
-            <span>Topluluk</span>
-          </a>
-
-          <a href="#" class="menu-item">
-            <i class="fa-solid fa-ranking-star"></i>
-            <span>Liderlik</span>
-          </a>
-        </nav>
-
-        <!-- Sağ aksiyonlar -->
-        <div class="actions">
-          <a href="#" class="primary-btn">
-            <i class="fa-solid fa-plus"></i>
-            <span>Oluştur</span>
-          </a>
-
-          <a href="#" class="secondary-btn">
-            <i class="fa-regular fa-user"></i>
-            <span>Giriş Yap</span>
-          </a>
-
-          <a href="#" class="circle-icon">
-            <i class="fa-regular fa-bell"></i>
-          </a>
-
-          <a href="#" class="circle-icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </a>
+        <div class="kategori">
+            <h2>İngilizce</h2>
+            <p>Kelime ve grammar quizleri</p>
+            <button onclick="location.href='quiz.html'">Başla</button>
         </div>
 
-      </div>
-    </header>
-  </div>
+        <div class="kategori">
+            <h2>Genel Kültür</h2>
+            <p>Bilgini ölç</p>
+            <button onclick="location.href='quiz.html'">Başla</button>
+        </div>
+
+    </div>
+
+    <div class="alt-butonlar">
+        <button onclick="location.href='login.html'">Giriş Yap</button>
+        <button onclick="location.href='register.html'">Kayıt Ol</button>
+    </div>
+
 </body>
 </html>
