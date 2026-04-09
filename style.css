@@ -3,6 +3,222 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Genel Sayfa Ayarı */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Kayıt Sayfası Ana Kapsayıcı */
+.kayit-scope {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Kayıt Form Kartı */
+.kayit-scope .kayit-form {
+    background: rgba(255, 255, 255, 0.94);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 380px; /* Kayıt formu biraz daha geniş olabilir */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.kayit-scope .kayit-form h2 {
+    text-align: center;
+    color: #ff5f52;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+.kayit-scope .input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.kayit-scope label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.kayit-scope input {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.kayit-scope input:focus {
+    border-color: #ff5f52;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 95, 82, 0.2);
+}
+
+/* Kayıt Butonu */
+.kayit-scope .kayit-btn {
+    width: 100%;
+    height: 45px;
+    background-color: #ff5f52;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.kayit-scope .kayit-btn:hover {
+    background-color: #e04a3f;
+    transform: translateY(-2px);
+}
+
+/* Form Altındaki Yönlendirme */
+.kayit-scope .form-ici-link {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.kayit-scope .form-ici-link p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.kayit-scope .form-ici-link a {
+    color: #ff5f52;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.kayit-scope .form-ici-link a:hover {
+    text-decoration: underline;
+}
+/* Ana Kapsayıcı: İçeriği dikeyde (column) hizalar */
+.giris {
+    display: flex;
+    flex-direction: column; /* Form ve yazıyı alt alta dizer */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Giriş Form Kartı */
+.giris .giris-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form Başlığı */
+.giris .giris-form h2 {
+    text-align: center;
+    color: #ff5f52;
+    margin: 0 0 30px 0; /* Marginleri sıfırlayıp alta boşluk verdik */
+    font-size: 28px;
+}
+
+/* İnput Grupları */
+.giris .input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.giris .input-group label {
+    color: #555;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.giris .input-group input {
+    width: 100%;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Giriş Butonu */
+.giris .giris-btn {
+    width: 100%;
+    height: 45px;
+    background-color: #ff5f52;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.giris .giris-btn:hover {
+    background-color: #e04a3f;
+}
+
+/* Formun içindeki link alanı */
+.giris .form-ici-link {
+    margin-top: 20px;
+    padding-top: 15px;
+    text-align: center;
+    border-top: 1px dotted #ddd; /* Üstteki butonla arasına ince bir çizgi çeker */
+}
+
+.giris .form-ici-link p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #666; /* Beyaz kutu içinde koyu gri yazı */
+}
+
+.giris .form-ici-link a {
+    color: #ff5f52; /* Senin ana rengin */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.giris .form-ici-link a:hover {
+    text-decoration: underline;
+}
+form {
+  width: 350px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+
 
 :root {
   --yellow-1: #ffd84d;
@@ -291,6 +507,7 @@ body {
     width: 64px;
     height: 64px;
   }
+
 
   .question-badge {
     width: 42px;
