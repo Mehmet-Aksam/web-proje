@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ehliyet Testi</title>
+  <link rel="stylesheet" href="ehliyet.css" />
+</head>
+<body>
+
+  <main class="test-page">
+    <section class="test-top">
+      <a class="geri-btn" href="ehliyet.html">← Testlere Dön</a>
+
+      <div class="test-top__header">
+        <div>
+          <span class="test-etiket">Ehliyet Hazırlık</span>
+          <h1 id="test-baslik">Test Yükleniyor...</h1>
+          <p id="test-aciklama">Sorular hazırlanıyor.</p>
+        </div>
+
+        <div class="test-ozet">
+          <div class="test-ozet__kart">
+            <span>Süre</span>
+            <strong id="sure">--:--</strong>
+          </div>
+          <div class="test-ozet__kart">
+            <span>Soru</span>
+            <strong id="soru-sayisi">0 / 0</strong>
+          </div>
+          <div class="test-ozet__kart">
+            <span>Doğru</span>
+            <strong id="dogru-sayisi">0</strong>
+          </div>
+          <div class="test-ozet__kart">
+            <span>Yanlış</span>
+            <strong id="yanlis-sayisi">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="test-icerik">
+      <div id="sorular-alani" class="sorular-alani"></div>
+
+      <div class="soru-gecis">
+        <button id="geri-soru-btn" class="nav-btn">← Geri</button>
+        <button id="ileri-soru-btn" class="nav-btn">İleri →</button>
+      </div>
+
+      <div class="test-alt">
+        <button id="bitir-btn" class="bitir-btn">Testi Bitir</button>
+      </div>
+    </section>
+
+    <section id="sonuc-alani" class="sonuc-alani gizli">
+      <h2>Test Sonucu</h2>
+
+      <div class="sonuc-kartlari">
+        <div class="sonuc-karti">
+          <span>Toplam Soru</span>
+          <strong id="sonuc-toplam">0</strong>
+        </div>
+        <div class="sonuc-karti">
+          <span>Doğru</span>
+          <strong id="sonuc-dogru">0</strong>
+        </div>
+        <div class="sonuc-karti">
+          <span>Yanlış</span>
+          <strong id="sonuc-yanlis">0</strong>
+        </div>
+        <div class="sonuc-karti">
+          <span>Boş</span>
+          <strong id="sonuc-bos">0</strong>
+        </div>
+        <div class="sonuc-karti">
+          <span>Skor</span>
+          <strong id="sonuc-skor">0</strong>
+        </div>
+      </div>
+
+      <div class="sonuc-butonlar">
+        <a class="geri-btn" href="ehliyet.html">Testlere Dön</a>
+        <button id="yeniden-btn" class="yeniden-btn">Tekrar Çöz</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="test.js"></script>
+</body>
+</html>

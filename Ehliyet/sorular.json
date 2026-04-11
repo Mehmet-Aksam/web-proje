@@ -1,0 +1,359 @@
+{
+  "levhalar_test_1": [
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/dur.png",
+    "a": "Dur",
+    "b": "Yol ver",
+    "c": "Girilmez",
+    "d": "Park",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/girilmez.png",
+    "a": "Dur",
+    "b": "Girilmez",
+    "c": "Park",
+    "d": "Hız sınırı",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/yolver.png",
+    "a": "Dur",
+    "b": "Yol ver",
+    "c": "Park",
+    "d": "Girilmez",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/park.png",
+    "a": "Park yeri",
+    "b": "Dur",
+    "c": "Girilmez",
+    "d": "Yasak",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/hiz50.png",
+    "a": "Minimum hız",
+    "b": "50 km hız sınırı",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/yaya.png",
+    "a": "Yaya geçidi",
+    "b": "Park",
+    "c": "Dur",
+    "d": "Yol ver",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/okul.png",
+    "a": "Hastane",
+    "b": "Okul geçidi",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/viraj.png",
+    "a": "Düz yol",
+    "b": "Tehlikeli viraj",
+    "c": "Park",
+    "d": "Dur",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/kaygan.png",
+    "a": "Kaygan yol",
+    "b": "Park",
+    "c": "Dur",
+    "d": "Yol ver",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/demiryolu.png",
+    "a": "Kavşak",
+    "b": "Demiryolu geçidi",
+    "c": "Park",
+    "d": "Dur",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/yolcalisma.png",
+    "a": "Park",
+    "b": "Yol çalışması",
+    "c": "Dur",
+    "d": "Hız",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/saga.png",
+    "a": "Sağa dön",
+    "b": "Sağa dönülmez",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/sola.png",
+    "a": "Sola dön",
+    "b": "Sola dönülmez",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/parkyasak.png",
+    "a": "Park serbest",
+    "b": "Park yasak",
+    "c": "Dur",
+    "d": "Yol ver",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/duraklama.png",
+    "a": "Duraklama yasak",
+    "b": "Park",
+    "c": "Dur",
+    "d": "Hız",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/donelkavsak.png",
+    "a": "Düz yol",
+    "b": "Dönel kavşak",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/daralma.png",
+    "a": "Yol daralır",
+    "b": "Geniş yol",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/yokus.png",
+    "a": "İniş",
+    "b": "Yokuş çıkış",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/tumsek.png",
+    "a": "Tümsek",
+    "b": "Düz yol",
+    "c": "Park",
+    "d": "Dur",
+    "dogru": "a"
+  },
+  {
+    "soru": "Yukarıdaki levha neyi ifade eder?",
+    "resim": "fotolar/sinyal.png",
+    "a": "Sinyalizasyon",
+    "b": "Trafik ışığı",
+    "c": "Dur",
+    "d": "Park",
+    "dogru": "b"
+  }
+],
+  "levhalar_test_2": [
+  {
+    "soru": "Dönel kavşakta geriye dönmek için orta ada etrafında dolaşırken, kavşak çıkışında bulunan ve uygun mesafede olmayan bir karayolu veya geçiş yoluna girmek istemesi hali dışında neye dikkat etmelidir?",
+    "a": "Soldan gelen araçların uzaklığına ve gidecekleri yöne",
+    "b": "Gireceği yola yaklaşıncaya kadar şeridini muhafaza etmeye",
+    "c": "Arkadan gelen araçların cinsine göre onlara öncelik tanımaya",
+    "d": "Sağdan gelen araçların uzaklığına ve gidecekleri yöne",
+    "dogru": "b"
+  },
+  {
+    "soru": "Yerleşim yerleri içinde kavşaklara kaç metre kala şerit değiştirmek yasaktır?",
+    "a": "20",
+    "b": "30",
+    "c": "40",
+    "d": "50",
+    "dogru": "b"
+  },
+  {
+    "soru": "Kavşaklara yaklaşırken kapama üzerinde çizilmiş olan oklar neyi bildirir?",
+    "a": "Sağa ve sola dönecek sürücülerin hızlarını azaltmaları gerektiğini",
+    "b": "Durma, duraklama ve park etmenin yasaklanmış olduğunu",
+    "c": "Sağa ve sola dönülemeyeceğini, doru gidilebileceğini",
+    "d": "Gidilecek ve dönülecek yöne göre zamanında uygun şeride girilmesini",
+    "dogru": "d"
+  },
+  {
+    "soru": "Trafik ışıkları yanında bir de ışıklı ok varsa ok yönündeki dönüşler ne zaman yapılmalıdır?",
+    "a": "Işıklı ok yeşil yandığında",
+    "b": "Işıklı ok söndüğünde",
+    "c": "Ana lamba yeşil yandığında",
+    "d": "Işıklı ok kırmızı yandığında",
+    "dogru": "a"
+  },
+  {
+    "soru": "Işıklı işaret cihazlarıyla kontrollü bir kavşakta dönüş yapılacağı sırada yayalara yeşil ışık yandığı halde (aksine bir işaret bulunmaması durumunda) karşıya geçen yaya yoksa veya yayalar uzakta iseler ne yapılır?",
+    "a": "Durup beklenir",
+    "b": "Dönüş tamamlanır",
+    "c": "Yayalara kırmızı yanması beklenir",
+    "d": "Kavşağa girmeden durulur",
+    "dogru": "b"
+  },
+  {
+    "soru": "Dönüş yapan sürücüler geçiş hakkını kime vermek zorundadırlar?",
+    "a": "Soldaki yoldan gelen araçlara",
+    "b": "Arkadan gelen ve sola dönecek araçlara",
+    "c": "Kurallara uygun olarak karşıya geçen yayalara",
+    "d": "Motorsuz araçlarla iş makinelerine",
+    "dogru": "c"
+  },
+  {
+    "soru": "Araç sürücülerinin, dönüşlerde, gidilen veya durulan şeridi değiştirmelerinde uymak zorunda oldukları kurallardan biri aşağıdakilerden hangisidir?",
+    "a": "Niyetlerini önceden uygun bir zaman eve mesafede iken, dönüş lambalarını yakarak işaretle bildirmeleri",
+    "b": "Dönerken, gidilen veya durulan şeridi değiştirirken arkadan gelenler yoksa işaret vermemeleri",
+    "c": "Dönüşlerini ve şerit değiştirmelerini önceden işaret vererek değil, uygun şeride girdikten sonra vermeleri",
+    "d": "Yol ve trafik durumuna göre diğer araçların hal ve hareketlerini gösteren işaretlere bakmaları",
+    "dogru": "a"
+  },
+  {
+    "soru": "Dönecek, gittiği veya durduğu şeridi değiştirecek sürücüler için aşağıdakilerden hangisinin yapılması yasaktır?",
+    "a": "Girecek şeritten gelen aracın geçmesini beklemek",
+    "b": "İşaret verdiği anda şerit değiştirmek veya manevraya başladıktan sonra işaret vermek",
+    "c": "İşaret vermeden ve manevraya başlamadan arka trafiği kontrol",
+    "d": "Geçiş için kullanılacak şeridin boş ve görüşün açık olduğunu kontrol etmek",
+    "dogru": "b"
+  },
+  {
+    "soru": "Dönüşlerde, gidilen veya durulan şeridi değiştirmelerde, sürücülerin uymak zorunda oldukları kurallardan biri aşağıdakilerden hangisidir?",
+    "a": "İşaret vermeden önce, iç ve dış aynalardan, gerekli hallerde başını çevirip bakmak suretiyle ön, arka ve yan trafiği kontrol etmek",
+    "b": "Şartlar ne olursa olsun manevranın emniyetli olması bakımından mutlaka bir gözcü bulundurmak",
+    "c": "Manevraya başlamadan önce durup aracın etrafını kontrol etmek ve sakıncalı bir durumun olmadığını görmek",
+    "d": "Durup aracın etrafını kontrol ettikten sonra, varsa arkadan gelenlere öncelik tanımak",
+    "dogru": "a"
+  },
+  {
+    "soru": "Bağlantı yollarıyla tek yönlü yollarda, aşağıdakilerden hangisinin yapılması yasaktır",
+    "a": "Yavaş gitmek",
+    "b": "Bu yollara girmek",
+    "c": "Herhangi bir sebeple durmak",
+    "d": "Geri gitmek",
+    "dogru": "d"
+  },
+  {
+    "soru": "Duraklanan veya park edilen yerden çıkarken, araç çalıştırılmadan önce ne yapılmalıdır?",
+    "a": "Trafik yetkilisinin talimat verip vermediğine bakılmalıdır",
+    "b": "Yolun tek veya iki yönlü olup olmadığına dikkat edilmelidir",
+    "c": "Taşıt yolunun genişliğine ve düzgünlüğüne bakılmalıdır",
+    "d": "Araç ve çevresi kontrol edilerek sakıncalı bir durumun olup olmadığına bakılmalıdır",
+    "dogru": "d"
+  },
+  {
+    "soru": "Duraklanan veya park edilen yerden çıkarken, uyulması gereken kurallardan biri aşağıdakilerden hangisidir?",
+    "a": "Yoldan geçen araç sürücülerini ikaz edip yavaşlamalarını sağlamak",
+    "b": "Yoldan geçen araç sürücüleri tarafından görülüp görülmediğini anlamak",
+    "c": "Yoldan geçen araçlara geçiş kolaylığı sağladıktan sonra manevraya başlamak",
+    "d": "Yoldan geçen sürücülerin geçiş kolaylığı sağlayıp sağlamadıklarına dikkat etmek",
+    "dogru": "c"
+  },
+  {
+    "soru": "Kamyon, otobüs, çekici, römork ve yarı römork takılı bir aracın geri manevrası sürücünün görüşüne açık alanda emniyetle yapılamıyor ise bu sürücü ne yapmak zorundadır?",
+    "a": "Aşağıya inip göremediği alanı kontrol etmek",
+    "b": "Trafik görevlilerinden yardım istemek",
+    "c": "Geri manevrasından vazgeçmek",
+    "d": "Bir gözcü bulundurmak",
+    "dogru": "d"
+  },
+  {
+    "soru": "Durakladığınız veya pak ettiğiniz yerden çıkarken kamu hizmeti yapan yolcu taşıtlarının durakla giriş ve çıkışlarını kolaylaştırmak için ne yapmak zorundasınız?",
+    "a": "Çıkışı çabuklaştırmak",
+    "b": "Durağa gelen aracı yavaşlatmak",
+    "c": "Durağa gelen aracı durdurmak",
+    "d": "Manevrayı geciktirmek",
+    "dogru": "d"
+  },
+  {
+    "soru": "Park etmiş arçlar arasından çıkmak, taşıt yolunun sağına veya soluna yanaşmak, şerit değiştirmek, sağa, sola veya geriye dönmek, geri gitmek ve benzeri hareketlerde bulunmak isteyen sürücüler neye dikkat etmek zorundadırlar?",
+    "a": "Acil uyarı ışıklarını yakarak yapacakları manevrayı diğer sürücülere bildirmek",
+    "b": "Arkadan gelen araçların sürücülerini ikaz ederek yavaşlatmak",
+    "c": "Öndeki araç sürücülerini ikaz ederek yer amaçlarını sağlamak",
+    "d": "Karayolunu kullananlar için tehlike yaratmamak, engel olmamak, hareketlerini zorlaştırmamak",
+    "dogru": "d"
+  },
+  {
+    "soru": "Herhangi bir sebeple geri gitmek zorunda kalan sürücülerin, aşağıdakilerden hangisini yapmaları yasaktır?",
+    "a": "Manevra dışında, şerit değiştirmeleri",
+    "b": "Bulundukları şeritte gitmeleri",
+    "c": "Yolun sağından geri gitmeleri",
+    "d": "Geri giderken dönüş ışıklarıyla işaret vermeleri",
+    "dogru": "a"
+  },
+  {
+    "soru": "Sağa ve sola dönüş manevralarında, aşağıdakilerden hangisi temel kuraldır?",
+    "a": "Sağa dönüşler için kavisle, sola dönüşler dar kavisle yapılır",
+    "b": "Sağa dönüşler dar kavisle, sola dönüşler geniş kavisle yapılır",
+    "c": "Sağa ve sola dönüşler, yol ve trafik durumuna göre geniş veya dar kavisle yapılır",
+    "d": "Sağa ve sola dönüşler, kavşağın kontrollü veya kontrolsüz olduğuna göre yapılır",
+    "dogru": "b"
+  },
+  {
+    "soru": "Işıklı trafik işaretleri izin verse bile, trafik akımı kendisini kavşak içinde durmaya zorlayacak ve diğer doğrultudaki trafiğin geçişine engel olacak ise sürücü ne yapmak zorundadır?",
+    "a": "Korna çalıp ikazda bulunmak",
+    "b": "Selektör yapıp ikazda bulunmak",
+    "c": "Kavşağa girmemek",
+    "d": "Geri dönüp gitmek",
+    "dogru": "c"
+  },
+  {
+    "soru": "Aşağıdakilerden hangisinde sürücü geriye gidebilir?",
+    "a": "Bağlantı yollarında",
+    "b": "İki yönlü dar yollarda geçiş kolaylığı sağlamak için",
+    "c": "Tek yönlü yollarda park etme dışında",
+    "d": "Tek yönlü yollarda duraklama dışında",
+    "dogru": "b"
+  },
+  {
+    "soru": "Geriye dönüşü tamamlanan araç sürücüsünün aşağıdakilerden hangisini yapması zorunludur?",
+    "a": "Aracının hızını azaltması",
+    "b": "Aynı hızla seyretmesi",
+    "c": "Bulunduğu şeridi izlemesi",
+    "d": "Hızına uygun şeride geçmesi",
+    "dogru": "d"
+  }
+],
+  "levhalar_test_3": [],
+
+  "ilkyardim_test_1": [],
+  "ilkyardim_test_2": [],
+  "ilkyardim_test_3": [],
+
+  "arac_test_1": [],
+  "arac_test_2": [],
+  "arac_test_3": [],
+
+  "adab_test_1": [],
+  "adab_test_2": [],
+  "adab_test_3": []
+}
