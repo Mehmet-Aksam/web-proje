@@ -5,6 +5,7 @@ body {
   color: #fff;
 }
 
+/* ANA SAYFA */
 main {
   width: min(1400px, 95%);
   margin: 0 auto;
@@ -109,7 +110,8 @@ main > section:not(:first-child) > div:last-child::-webkit-scrollbar-track {
   background: transparent;
 }
 
-article {
+/* ANA SAYFA KARTLARI - SADECE ANA SAYFA İÇİN */
+main > section:not(:first-child) > div:last-child > article {
   min-width: 340px;
   max-width: 340px;
   overflow: hidden;
@@ -121,25 +123,25 @@ article {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-article:hover {
+main > section:not(:first-child) > div:last-child > article:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
 }
 
-article > div:first-child {
+main > section:not(:first-child) > div:last-child > article > div:first-child {
   position: relative;
   height: 220px;
   overflow: hidden;
 }
 
-article > div:first-child::after {
+main > section:not(:first-child) > div:last-child > article > div:first-child::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(17, 22, 52, 0.72), rgba(17, 22, 52, 0.1));
 }
 
-article img {
+main > section:not(:first-child) > div:last-child > article img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -147,11 +149,11 @@ article img {
   transition: transform 0.35s ease;
 }
 
-article:hover img {
+main > section:not(:first-child) > div:last-child > article:hover img {
   transform: scale(1.06);
 }
 
-article > div:first-child > span {
+main > section:not(:first-child) > div:last-child > article > div:first-child > span {
   position: absolute;
   top: 14px;
   left: 14px;
@@ -164,18 +166,18 @@ article > div:first-child > span {
   font-weight: 800;
 }
 
-article > div:last-child {
+main > section:not(:first-child) > div:last-child > article > div:last-child {
   padding: 20px 20px 22px;
 }
 
-article h3 {
+main > section:not(:first-child) > div:last-child > article h3 {
   margin: 0 0 10px;
   font-size: 22px;
   line-height: 1.35;
   color: #ffffff;
 }
 
-article > div:last-child > p {
+main > section:not(:first-child) > div:last-child > article > div:last-child > p {
   min-height: 44px;
   margin: 0 0 16px;
   font-size: 15px;
@@ -183,14 +185,14 @@ article > div:last-child > p {
   color: #d5daf8;
 }
 
-article > div:last-child > div {
+main > section:not(:first-child) > div:last-child > article > div:last-child > div {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 18px;
 }
 
-article > div:last-child > div span {
+main > section:not(:first-child) > div:last-child > article > div:last-child > div span {
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
@@ -199,7 +201,7 @@ article > div:last-child > div span {
   font-weight: 700;
 }
 
-article a {
+main > section:not(:first-child) > div:last-child > article a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -214,43 +216,16 @@ article a {
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-article a:hover {
+main > section:not(:first-child) > div:last-child > article a:hover {
   transform: scale(1.02);
   opacity: 0.95;
 }
 
-@media (max-width: 900px) {
-  main > section:first-child {
-    padding: 26px;
-  }
-
-  main > section:first-child h1 {
-    font-size: 34px;
-  }
-
-  main > section:not(:first-child) > div:first-child {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  main > section:not(:first-child) h2 {
-    font-size: 28px;
-  }
-
-  article {
-    min-width: 285px;
-    max-width: 285px;
-  }
-
-  article > div:first-child {
-    height: 190px;
-  }
-}
+/* TEST SAYFASI */
 .test-page {
   width: min(1100px, 92%);
   margin: 0 auto;
   padding: 28px 0 60px;
-  font-family: Arial, sans-serif;
   color: #fff;
 }
 
@@ -343,11 +318,12 @@ article a:hover {
 }
 
 .sorular-alani {
-  display: grid;
-  gap: 18px;
+  display: block;
 }
 
-.soru-karti {
+.tek-soru-karti {
+  max-width: 900px;
+  margin: 0 auto;
   padding: 22px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.08);
@@ -357,35 +333,43 @@ article a:hover {
 
 .soru-karti__ust {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .soru-no {
   display: inline-flex;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(255, 214, 72, 0.14);
-  color: #ffd648;
+  background: #ffd848;
+  color: #1d2256;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-.soru-metin {
-  margin: 0 0 18px;
-  font-size: 21px;
-  line-height: 1.45;
-  color: #fff;
+.soru-gorsel-alani {
+  width: 100%;
+  margin: 0 0 22px;
+  padding: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #ffffff;
 }
 
 .soru-resim {
   width: 100%;
-  max-width: 420px;
   display: block;
-  margin: 0 0 18px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  max-height: 420px;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.soru-metin {
+  margin: 0 0 22px;
+  font-size: 28px;
+  line-height: 1.35;
+  color: #fff;
 }
 
 .secenekler {
@@ -439,6 +423,35 @@ article a:hover {
 .secenek-btn.yanlis {
   background: rgba(153, 27, 27, 0.3);
   border-color: rgba(248, 113, 113, 0.85);
+}
+
+.soru-gecis {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 22px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.nav-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.nav-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .test-alt {
@@ -520,6 +533,32 @@ article a:hover {
 }
 
 @media (max-width: 900px) {
+  main > section:first-child {
+    padding: 26px;
+  }
+
+  main > section:first-child h1 {
+    font-size: 34px;
+  }
+
+  main > section:not(:first-child) > div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  main > section:not(:first-child) h2 {
+    font-size: 28px;
+  }
+
+  main > section:not(:first-child) > div:last-child > article {
+    min-width: 285px;
+    max-width: 285px;
+  }
+
+  main > section:not(:first-child) > div:last-child > article > div:first-child {
+    height: 190px;
+  }
+
   .test-top__header {
     grid-template-columns: 1fr;
   }
@@ -535,7 +574,7 @@ article a:hover {
     padding: 20px 0 40px;
   }
 
-  .soru-karti {
+  .tek-soru-karti {
     padding: 18px;
   }
 
@@ -555,50 +594,4 @@ article a:hover {
     font-size: 14px;
     padding: 14px;
   }
-}
-.tek-soru-karti {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.soru-gecis {
-  margin-top: 24px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.nav-btn {
-  border: none;
-  border-radius: 14px;
-  padding: 12px 22px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.25s ease;
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-
-.nav-btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.nav-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-.secenek-btn.dogru {
-  background: rgba(21, 128, 61, 0.28);
-  border-color: rgba(34, 197, 94, 0.85);
-}
-
-.secenek-btn.yanlis {
-  background: rgba(153, 27, 27, 0.3);
-  border-color: rgba(248, 113, 113, 0.85);
-}
-
-.secenek-btn.secildi {
-  border-color: rgba(255, 214, 72, 0.65);
 }

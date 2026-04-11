@@ -2,7 +2,7 @@
   "levhalar_test_1": [
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/dur.png",
+    "resim": "fotolar/dur.jpg",
     "a": "Dur",
     "b": "Yol ver",
     "c": "Girilmez",
@@ -11,7 +11,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/girilmez.png",
+    "resim": "fotolar/girilmez.jpg",
     "a": "Dur",
     "b": "Girilmez",
     "c": "Park",
@@ -20,7 +20,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/yolver.png",
+    "resim": "fotolar/yolver.jpg",
     "a": "Dur",
     "b": "Yol ver",
     "c": "Park",
@@ -38,7 +38,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/hiz50.png",
+    "resim": "fotolar/hiz50.jpg",
     "a": "Minimum hız",
     "b": "50 km hız sınırı",
     "c": "Dur",
@@ -47,7 +47,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/yaya.png",
+    "resim": "fotolar/yaya.jpg",
     "a": "Yaya geçidi",
     "b": "Park",
     "c": "Dur",
@@ -65,16 +65,16 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/viraj.png",
+    "resim": "fotolar/viraj.jpg",
     "a": "Düz yol",
-    "b": "Tehlikeli viraj",
+    "b": "Sağa tehlikeli viraj",
     "c": "Park",
     "d": "Dur",
     "dogru": "b"
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/kaygan.png",
+    "resim": "fotolar/kaygan.jpg",
     "a": "Kaygan yol",
     "b": "Park",
     "c": "Dur",
@@ -83,7 +83,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/demiryolu.png",
+    "resim": "fotolar/demiryolu.jpg",
     "a": "Kavşak",
     "b": "Demiryolu geçidi",
     "c": "Park",
@@ -92,7 +92,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/yolcalisma.png",
+    "resim": "fotolar/yolcalisma.jpg",
     "a": "Park",
     "b": "Yol çalışması",
     "c": "Dur",
@@ -101,7 +101,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/saga.png",
+    "resim": "fotolar/saga.jpg",
     "a": "Sağa dön",
     "b": "Sağa dönülmez",
     "c": "Dur",
@@ -110,16 +110,16 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/sola.png",
+    "resim": "fotolar/sola.jpg",
     "a": "Sola dön",
     "b": "Sola dönülmez",
-    "c": "Dur",
+    "c": "İleriden Sola Mecburi Yön",
     "d": "Park",
     "dogru": "a"
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/parkyasak.png",
+    "resim": "fotolar/parkyasak.jpg",
     "a": "Park serbest",
     "b": "Park yasak",
     "c": "Dur",
@@ -128,7 +128,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/duraklama.png",
+    "resim": "fotolar/duraklama.jpg",
     "a": "Duraklama yasak",
     "b": "Park",
     "c": "Dur",
@@ -137,7 +137,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/donelkavsak.png",
+    "resim": "fotolar/donel.jpg",
     "a": "Düz yol",
     "b": "Dönel kavşak",
     "c": "Dur",
@@ -146,19 +146,19 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/daralma.png",
+    "resim": "fotolar/daralan.jpg",
     "a": "Yol daralır",
-    "b": "Geniş yol",
-    "c": "Dur",
+    "b": "Her iki taraftan daralan yol",
+    "c": "Sağa daralan yol",
     "d": "Park",
     "dogru": "a"
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/yokus.png",
+    "resim": "fotolar/yokus.jpg",
     "a": "İniş",
     "b": "Yokuş çıkış",
-    "c": "Dur",
+    "c": "Tehlikeli eğim iniş",
     "d": "Park",
     "dogru": "b"
   },
@@ -173,7 +173,7 @@
   },
   {
     "soru": "Yukarıdaki levha neyi ifade eder?",
-    "resim": "fotolar/sinyal.png",
+    "resim": "fotolar/sinyal.jpg",
     "a": "Sinyalizasyon",
     "b": "Trafik ışığı",
     "c": "Dur",

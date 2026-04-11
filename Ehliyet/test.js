@@ -86,9 +86,9 @@ let testBitti = false;
 let aktifSoruIndex = 0;
 
 function dakikaSaniyeYaz(saniye) {
-  const dk = Math.floor(saniye / 60);
-  const sn = saniye % 60;
-  return `${String(dk).padStart(2, "0")}:${String(sn).padStart(2, "0")}`;
+  const dakika = Math.floor(saniye / 60);
+  const saniyeKalan = saniye % 60;
+  return `${String(dakika).padStart(2, "0")}:${String(saniyeKalan).padStart(2, "0")}`;
 }
 
 function ustBilgileriGuncelle() {
@@ -100,9 +100,9 @@ function ustBilgileriGuncelle() {
     if (!secilen) return;
 
     if (secilen === soru.dogru) {
-      dogru += 1;
+      dogru++;
     } else {
-      yanlis += 1;
+      yanlis++;
     }
   });
 
@@ -114,6 +114,24 @@ function ustBilgileriGuncelle() {
 function gecisButonlariniGuncelle() {
   geriSoruBtn.disabled = aktifSoruIndex === 0;
   ileriSoruBtn.disabled = aktifSoruIndex === testSorulari.length - 1;
+}
+
+function cevapClassiHesapla(secenekHarf, secilen, dogruCevap) {
+  if (!secilen) return "";
+
+  if (secenekHarf === secilen && secenekHarf === dogruCevap) {
+    return "secildi dogru";
+  }
+
+  if (secenekHarf === secilen && secenekHarf !== dogruCevap) {
+    return "secildi yanlis";
+  }
+
+  if (secenekHarf === dogruCevap) {
+    return "dogru";
+  }
+
+  return "";
 }
 
 function soruKartiniGoster() {
@@ -129,28 +147,17 @@ function soruKartiniGoster() {
   const secilen = secimler[aktifSoruIndex];
 
   const resimHtml = soru.resim
-    ? `<img src="${soru.resim}" alt="Soru görseli" class="soru-resim">`
+    ? `
+      <div class="soru-gorsel-alani">
+        <img src="${soru.resim}" alt="Soru görseli" class="soru-resim">
+      </div>
+    `
     : "";
 
-  const aClass =
-    secilen === "a"
-      ? (soru.dogru === "a" ? "secildi dogru" : "secildi yanlis")
-      : (secilen ? (soru.dogru === "a" ? "dogru" : "") : "");
-
-  const bClass =
-    secilen === "b"
-      ? (soru.dogru === "b" ? "secildi dogru" : "secildi yanlis")
-      : (secilen ? (soru.dogru === "b" ? "dogru" : "") : "");
-
-  const cClass =
-    secilen === "c"
-      ? (soru.dogru === "c" ? "secildi dogru" : "secildi yanlis")
-      : (secilen ? (soru.dogru === "c" ? "dogru" : "") : "");
-
-  const dClass =
-    secilen === "d"
-      ? (soru.dogru === "d" ? "secildi dogru" : "secildi yanlis")
-      : (secilen ? (soru.dogru === "d" ? "dogru" : "") : "");
+  const aClass = cevapClassiHesapla("a", secilen, soru.dogru);
+  const bClass = cevapClassiHesapla("b", secilen, soru.dogru);
+  const cClass = cevapClassiHesapla("c", secilen, soru.dogru);
+  const dClass = cevapClassiHesapla("d", secilen, soru.dogru);
 
   const disabledAttr = secilen || testBitti ? "disabled" : "";
 
@@ -160,9 +167,9 @@ function soruKartiniGoster() {
         <span class="soru-no">Soru ${aktifSoruIndex + 1}</span>
       </div>
 
-      <h3 class="soru-metin">${soru.soru}</h3>
-
       ${resimHtml}
+
+      <h3 class="soru-metin">${soru.soru}</h3>
 
       <div class="secenekler">
         <button class="secenek-btn ${aClass}" data-soru="${aktifSoruIndex}" data-secim="a" ${disabledAttr}>
@@ -192,13 +199,12 @@ function secimYap(soruIndex, secim) {
   if (testBitti) return;
 
   secimler[soruIndex] = secim;
-  ustBilgileriGuncelle();
   soruKartiniGoster();
 }
 
 function oncekiSoru() {
   if (aktifSoruIndex > 0) {
-    aktifSoruIndex -= 1;
+    aktifSoruIndex--;
     soruKartiniGoster();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -206,7 +212,7 @@ function oncekiSoru() {
 
 function sonrakiSoru() {
   if (aktifSoruIndex < testSorulari.length - 1) {
-    aktifSoruIndex += 1;
+    aktifSoruIndex++;
     soruKartiniGoster();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -221,11 +227,11 @@ function sonucuGoster() {
     const secilen = secimler[index];
 
     if (!secilen) {
-      bos += 1;
+      bos++;
     } else if (secilen === soru.dogru) {
-      dogru += 1;
+      dogru++;
     } else {
-      yanlis += 1;
+      yanlis++;
     }
   });
 
@@ -260,7 +266,7 @@ function sayaciBaslat() {
   sureEl.textContent = dakikaSaniyeYaz(kalanSure);
 
   zamanlayici = setInterval(() => {
-    kalanSure -= 1;
+    kalanSure--;
 
     if (kalanSure <= 0) {
       sureEl.textContent = "00:00";
@@ -275,6 +281,16 @@ function sayaciBaslat() {
 
 function testiHazirla() {
   const bilgi = testBilgileri[testAdi];
+
+  if (!testAdi) {
+    testBaslik.textContent = "Test seçilmedi";
+    testAciklama.textContent = "Test linkinde eksik parametre var.";
+    sorularAlani.innerHTML = "<p>Önce test seçmelisin.</p>";
+    bitirBtn.disabled = true;
+    geriSoruBtn.disabled = true;
+    ileriSoruBtn.disabled = true;
+    return;
+  }
 
   if (!bilgi || !tumTestler[testAdi]) {
     testBaslik.textContent = "Test bulunamadı";
