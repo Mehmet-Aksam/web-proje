@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hakkımızda - Sorcik</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(180deg, #0f1430, #0a0f28);
+    
+      color: #ffffff;
+    }
+
+    .kapsayici {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 0;
+    }
+
+    .ust-alan {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .ust-alan h1 {
+      font-size: 40px;
+      color: #ffd648;
+      margin-bottom: 10px;
+    }
+
+    .ust-alan p {
+      font-size: 18px;
+      opacity: 0.8;
+    }
+
+    .kart {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 214, 72, 0.2);
+    }
+
+    .kart h2 {
+      color: #ffd648;
+      margin-bottom: 10px;
+    }
+
+    .kart p {
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .ekip-alani {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .ekip-uye {
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .ekip-uye img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .ekip-uye h3 {
+      margin: 5px 0;
+    }
+
+    .ekip-uye span {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .buton {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #ffd648;
+      color: #000;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .buton:hover {
+      background: #ffbf00;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="kapsayici">
+
+    <!-- Başlık -->
+    <div class="ust-alan">
+      <h1>Hakkımızda</h1>
+      <p>Sorcik ile bilgini test et, gelişimini takip et 🚀</p>
+    </div>
+
+    <!-- Hakkımızda -->
+    <div class="kart">
+      <h2>Biz Kimiz?</h2>
+      <p>
+        Sorcik, kullanıcıların eğlenerek öğrenmesini sağlayan bir quiz platformudur.
+        Amacımız, bilgiyi daha erişilebilir ve keyifli hale getirmek.
+      </p>
+    </div>
+
+    <!-- Misyon -->
+    <div class="kart">
+      <h2>Misyonumuz</h2>
+      <p>
+        Herkesin kolayca öğrenebileceği, kendini test edebileceği ve gelişimini
+        takip edebileceği bir ortam oluşturmak.
+      </p>
+    </div>
+
+    <!-- Vizyon -->
+    <div class="kart">
+      <h2>Vizyonumuz</h2>
+      <p>
+        Türkiye’nin en büyük quiz platformlarından biri olmak ve
+        öğrenmeyi eğlenceli hale getirmek.
+      </p>
+    </div>
+
+    <!-- Ekip -->
+    <div class="kart">
+      <h2>Ekibimiz</h2>
+
+      <div class="ekip-alani">
+        <div class="ekip-uye">
+          <img src="https://via.placeholder.com/80" alt="">
+          <h3>Ahmet Dağdeviren</h3>
+          <span>Developer</span>
+        </div>
+
+        <div class="ekip-uye">
+          <img src="https://via.placeholder.com/80" alt="">
+          <h3>Mehmet Akşam</h3>
+          <span>Developer</span>
+        </div>
+
+        <div class="ekip-uye">
+          <img src="https://via.placeholder.com/80" alt="">
+          <h3>Emirhan Şanlıtürk</h3>
+          <span>Developer</span>
+        </div>
+      </div>
+
+      <a href="index.html" class="buton">Ana Sayfaya Dön</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
