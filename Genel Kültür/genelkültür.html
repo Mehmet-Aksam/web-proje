@@ -4,181 +4,137 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Genel Kültür Bilgi Yarışması</title>
-  <link rel="stylesheet" href="genelkültür.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-  <main>
-    <section>
+  <div class="top-strip"></div>
+  <div class="header-wrap">
+    <header class="navbar">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-icon">
+            <div class="question-badge"><i class="fa-solid fa-globe"></i></div>
+          </div>
+          <div class="brand-copy">
+            <h1 class="brand-text">Genel Kültür</h1>
+            <p class="brand-subtitle">Bilgi Yarışması Testleri</p>
+          </div>
+        </div>
+        <nav class="menu">
+          <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i><span>Ana Sayfa</span></a>
+          <a href="../Ehliyet/ehliyet.html" class="menu-item"><i class="fa-solid fa-car-side"></i><span>Ehliyet</span></a>
+          <a href="../ingilizce.html" class="menu-item"><i class="fa-solid fa-language"></i><span>İngilizce</span></a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main class="home-page">
+    <section class="section-head">
       <div>
-        <span>Kendini Test Et</span>
-        <h1>Genel Kültür Quizleri</h1>
-        <p>Tarihten sanata, coğrafyadan spora kadar farklı kategorilerde bilgini ölç.</p>
+        <span class="section-mini">Tarih</span>
+        <h3>Tarih ve Medeniyet</h3>
       </div>
     </section>
 
-    <section>
-      <div>
-        <div>
-          <h2>Tarih ve Medeniyet</h2>
-          <p>Dünya tarihi, Osmanlı tarihi ve önemli olaylar üzerine testler.</p>
+    <section class="quiz-grid">
+      <article class="quiz-card">
+        <img src="genel-kultur-resimleri/tarih1.jpeg" class="quiz-image" alt="Antik Çağ" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Popüler</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(3)</span>
-      </div>
+        <h4>Antik Çağ ve Mitoloji</h4>
+        <p>15 soru · 15 dakika · Görselli</p>
+        <div class="quiz-tags">
+          <span>Antik</span>
+          <span>Mitoloji</span>
+        </div>
+        <a href="../Ehliyet/test.html?test=genelkultur_test" class="quiz-btn">Teste Başla</a>
+      </article>
 
+      <article class="quiz-card">
+        <img src="genel-kultur-resimleri/tarih2.jpg" class="quiz-image" alt="Yakın Çağ" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Temel</span>
+          <i class="fa-regular fa-bookmark"></i>
+        </div>
+        <h4>Yakın Çağ Tarihi</h4>
+        <p>20 soru · 20 dakika · Orta</p>
+        <div class="quiz-tags">
+          <span>Tarih</span>
+          <span>Genel</span>
+        </div>
+        <a href="../Ehliyet/test.html?test=genelkultur_test" class="quiz-btn">Teste Başla</a>
+      </article>
+      
+      <article class="quiz-card">
+        <img src="genel-kultur-resimleri/tarih3.png" class="quiz-image" alt="Osmanlı" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Zor</span>
+          <i class="fa-regular fa-bookmark"></i>
+        </div>
+        <h4>Osmanlı İmparatorluğu</h4>
+        <p>25 soru · 25 dakika · Zor</p>
+        <div class="quiz-tags">
+          <span>Osmanlı</span>
+          <span>Tarih</span>
+        </div>
+        <a href="../Ehliyet/test.html?test=genelkultur_test" class="quiz-btn">Teste Başla</a>
+      </article>
+    </section>
+
+    <section class="section-head">
       <div>
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/tarih1.jpeg" alt="Tarih test 1" />
-            <span>Test 1</span>
-          </div>
-          <div>
-            <h3>Antik Çağ ve Mitoloji</h3>
-            <p>Antik Yunan, Mısır ve Roma medeniyetleri hakkında temel bilgiler.</p>
-            <div>
-              <span>15 Soru</span>
-              <span>15 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/tarih2.jpg" alt="Tarih test 2" />
-            <span>Test 2</span>
-          </div>
-          <div>
-            <h3>Yakın Çağ Tarihi</h3>
-            <p>Dünya savaşları ve modern Türkiye'nin kuruluşu üzerine sorular.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/tarih3.png" alt="Tarih test 3" />
-            <span>Test 3</span>
-          </div>
-          <div>
-            <h3>Osmanlı İmparatorluğu</h3>
-            <p>Padişahlar, fetihler ve Osmanlı kültürü üzerine kapsamlı test.</p>
-            <div>
-              <span>25 Soru</span>
-              <span>25 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
+        <span class="section-mini">Coğrafya</span>
+        <h3>Coğrafya ve Doğa</h3>
       </div>
     </section>
 
-    <section>
-      <div>
-        <div>
-          <h2>Coğrafya ve Doğa</h2>
-          <p>Ülkeler, başkentler, dağlar ve doğal harikalar.</p>
+    <section class="quiz-grid">
+      <article class="quiz-card">
+        <img src="genel-kultur-resimleri/coğrafya1.png" class="quiz-image" alt="Coğrafya" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Önemli</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(2)</span>
-      </div>
+        <h4>Başkentler ve Bayraklar</h4>
+        <p>20 soru · 10 dakika</p>
+        <div class="quiz-tags">
+          <span>Ülkeler</span>
+          <span>Bayraklar</span>
+        </div>
+        <a href="../Ehliyet/test.html?test=genelkultur_test" class="quiz-btn">Teste Başla</a>
+      </article>
+    </section>
 
+    <section class="section-head">
       <div>
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/coğrafya1.png" alt="Coğrafya test 1" />
-            <span>Test 1</span>
-          </div>
-          <div>
-            <h3>Başkentler ve Bayraklar</h3>
-            <p>Dünya ülkelerini başkentlerinden ve bayraklarından tanı.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>10 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/coğrafya2.jpg" alt="Coğrafya test 2" />
-            <span>Test 2</span>
-          </div>
-          <div>
-            <h3>Türkiye Coğrafyası</h3>
-            <p>Ülkemizin gölleri, dağları ve bölgeleri hakkında genel bilgiler.</p>
-            <div>
-              <span>15 Soru</span>
-              <span>15 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
+        <span class="section-mini">Sanat</span>
+        <h3>Sanat ve Edebiyat</h3>
       </div>
     </section>
 
-    <section>
-      <div>
-        <div>
-          <h2>Sanat ve Edebiyat</h2>
-          <p>Klasik eserler, ünlü ressamlar ve dünya edebiyatı.</p>
+    <section class="quiz-grid">
+      <article class="quiz-card">
+        <img src="genel-kultur-resimleri/sanat1.jpg" class="quiz-image" alt="Sanat" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Zor</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(3)</span>
-      </div>
-
-      <div>
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/sanat1.jpg" alt="Sanat test 1" />
-            <span>Test 1</span>
-          </div>
-          <div>
-            <h3>Dünya Klasikleri</h3>
-            <p>Unutulmaz yazarlar ve onların başyapıtları üzerine sorular.</p>
-            <div>
-              <span>15 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/sanat2.jpg" alt="Sanat test 2" />
-            <span>Test 2</span>
-          </div>
-          <div>
-            <h3>Ünlü Tablolar ve Ressamlar</h3>
-            <p>Rönesans'tan modern sanata, fırça izlerini takip et.</p>
-            <div>
-              <span>10 Soru</span>
-              <span>10 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="genel-kultur-resimleri/sanat3.jpg" alt="Sanat test 3" />
-            <span>Test 3</span>
-          </div>
-          <div>
-            <h3>Modern Sanat Akımları</h3>
-            <p>Kübizm, Sürrealizm ve Pop Art dünyasına bir yolculuk.</p>
-            <div>
-              <span>12 Soru</span>
-              <span>15 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-      </div>
+        <h4>Dünya Klasikleri</h4>
+        <p>15 soru · 20 dakika</p>
+        <div class="quiz-tags">
+          <span>Edebiyat</span>
+          <span>Klasik</span>
+        </div>
+        <a href="../Ehliyet/test.html?test=genelkultur_test" class="quiz-btn">Teste Başla</a>
+      </article>
     </section>
   </main>
 

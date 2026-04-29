@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Oturum kontrol - Kullanıcı giriş yapmadıysa login sayfasına yönlendir
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.html');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -30,8 +39,9 @@
       <a href="ingilizce.html"><i class="fa-solid fa-language"></i> İngilizce</a>
       <a href="Ehliyet/ehliyet.html"><i class="fa-solid fa-car-side"></i> Ehliyet</a>
       <a href="topluluk.html"><i class="fa-solid fa-user-group"></i> Topluluk</a>
-      <a href="liderlik.php"><i class="fa-solid fa-ranking-star"></i> Liderlik</a>
+      <a href="liderlik.html"><i class="fa-solid fa-ranking-star"></i> Liderlik</a>
       <a href="sorum_var.html"><i class="fa-regular fa-circle-question"></i> Sorum Var?</a>
+      <a href="cikis.php" style="color: #ff5f52; border-top: 1px solid #eee; margin-top: 20px; padding-top: 20px;"><i class="fa-solid fa-sign-out-alt"></i> Çıkış Yap</a>
     </nav>
   </aside>
 
@@ -88,14 +98,14 @@
         </nav>
 
         <div class="actions">
-          <a href="admin.php" class="primary-btn">
+          <a href="#" class="primary-btn">
             <i class="fa-solid fa-plus"></i>
             <span>Oluştur</span>
           </a>
 
-          <a href="login.html" class="secondary-btn">
-            <i class="fa-regular fa-user"></i>
-            <span>Giriş Yap</span>
+          <a href="cikis.php" class="secondary-btn">
+            <i class="fa-solid fa-sign-out-alt"></i>
+            <span>Çıkış</span>
           </a>
         </div>
 
@@ -115,8 +125,8 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#quiz-section" class="hero-primary">Hemen Başla</a>
-          <a href="liderlik.php" class="hero-secondary">Sıralama</a>
+          <a href="#" class="hero-primary">Hemen Başla</a>
+          <a href="#" class="hero-secondary">Turnuvaları Gör</a>
         </div>
 
         <div class="hero-mini-stats">
@@ -155,7 +165,7 @@
           <i class="fa-solid fa-crown"></i>
           <div>
             <strong>Bugünün Lideri</strong>
-            <span>Haftalık Birinci</span>
+            <span><?php echo $_SESSION['username']; ?> · 980 puan</span>
           </div>
         </div>
       </div>
@@ -166,7 +176,8 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" id="mainSearch" placeholder="Quiz, kategori veya konu ara...">
       </div>
-      <div id="searchResults" class="search-results-overlay" style="display:none; position:absolute; background: rgba(15,23,42,0.95); z-index:100; width:100%; border-radius:12px; margin-top:5px; border:1px solid rgba(255,255,255,0.1);"></div>
+      <div id="searchResults" class="search-results-overlay"></div>
+
 
       <div class="filter-row">
         <button class="filter-chip active">Tümü</button>
@@ -179,7 +190,7 @@
       </div>
     </section>
 
-    <section class="section-head" id="quiz-section">
+    <section class="section-head">
       <div>
         <span class="section-mini">Öne Çıkanlar</span>
         <h3>Popüler Kategoriler</h3>
@@ -188,26 +199,26 @@
     </section>
 
     <section class="category-grid">
-      <a href="Genel Kültür/genelkültür.html" class="category-card">
-        <div class="category-icon"><i class="fa-solid fa-earth-europe"></i></div>
+      <a href="Genel Kültür/genelkültür.html" class="category-card animate-on-scroll retro-card" style="background: linear-gradient(135deg, #FF00FF, #FF69B4); border: 6px solid #00FFFF;">
+        <div class="category-image" style="font-size: 64px;">🌍</div>
         <h4>Genel Kültür</h4>
         <p>Tarih, coğrafya, bilim ve daha fazlası.</p>
       </a>
 
-      <a href="ingilizce.html" class="category-card">
-        <div class="category-icon"><i class="fa-solid fa-language"></i></div>
+      <a href="ingilizce.html" class="category-card animate-on-scroll retro-card" style="background: linear-gradient(135deg, #00FFFF, #00FF7F); border: 6px solid #FFFF00;">
+        <div class="category-image" style="font-size: 64px;">🇬🇧</div>
         <h4>İngilizce</h4>
         <p>Kelime, gramer ve hızlı tekrar testleri.</p>
       </a>
 
-      <a href="Ehliyet/ehliyet.html" class="category-card">
-        <div class="category-icon"><i class="fa-solid fa-car"></i></div>
+      <a href="Ehliyet/ehliyet.html" class="category-card animate-on-scroll retro-card" style="background: linear-gradient(135deg, #FFD700, #FF6347); border: 6px solid #FF00FF;">
+        <div class="category-image" style="font-size: 64px;">🚗</div>
         <h4>Ehliyet</h4>
         <p>Trafik, ilk yardım, motor ve levhalar.</p>
       </a>
 
-      <a href="turnuva.html" class="category-card">
-        <div class="category-icon"><i class="fa-solid fa-trophy"></i></div>
+      <a href="turnuva.html" class="category-card animate-on-scroll retro-card" style="background: linear-gradient(135deg, #32CD32, #FF4500); border: 6px solid #00FFFF;">
+        <div class="category-image" style="font-size: 64px;">🏆</div>
         <h4>Turnuva</h4>
         <p>Arkadaşlarınla yarış, skorunu yükselt.</p>
       </a>
@@ -223,7 +234,7 @@
 
     <section class="quiz-grid">
       <article class="quiz-card animate-on-scroll">
-        <img src="Genel Kültür/genel-kultur-resimleri/tarih1.jpeg" class="quiz-image" />
+        <img src="Genel Kültür/genel-kultur-resimleri/tarih1.jpeg" class="quiz-image" alt="Genel Kültür" />
         <div class="quiz-top">
           <span class="quiz-badge">Popüler</span>
           <i class="fa-regular fa-bookmark"></i>
@@ -235,11 +246,11 @@
           <span>Coğrafya</span>
           <span>Klasik</span>
         </div>
-        <a href="Ehliyet/test.html?test=genelkultur_test" class="quiz-btn">Teste Başla</a>
+        <a href="#" class="quiz-btn">Teste Başla</a>
       </article>
 
       <article class="quiz-card animate-on-scroll">
-        <img src="Ehliyet/fotolar/trafikçevre.jpg" class="quiz-image" />
+        <img src="Ehliyet/fotolar/trafikçevre.jpg" class="quiz-image" alt="Ehliyet" />
         <div class="quiz-top">
           <span class="quiz-badge">Yeni</span>
           <i class="fa-regular fa-bookmark"></i>
@@ -251,11 +262,11 @@
           <span>Levha</span>
           <span>Resimli</span>
         </div>
-        <a href="Ehliyet/test.html?test=levhalar_test_1" class="quiz-btn">Teste Başla</a>
+        <a href="Ehliyet/ehliyet.html" class="quiz-btn">Teste Başla</a>
       </article>
 
       <article class="quiz-card animate-on-scroll">
-        <img src="imagesingilizce/Ingilizce-Kelimeler.jpg" class="quiz-image" />
+        <img src="imagesingilizce/Ingilizce-Kelimeler.jpg" class="quiz-image" alt="İngilizce" />
         <div class="quiz-top">
           <span class="quiz-badge">Zirve</span>
           <i class="fa-regular fa-bookmark"></i>
@@ -267,7 +278,7 @@
           <span>Kelime</span>
           <span>Hızlı</span>
         </div>
-        <a href="Ehliyet/test.html?test=ingilizce_test" class="quiz-btn">Teste Başla</a>
+        <a href="ingilizce.html" class="quiz-btn">Teste Başla</a>
       </article>
     </section>
 
@@ -331,12 +342,11 @@
           <span class="section-mini">Sıralama</span>
           <h3>Haftalık Liderlik Tablosu</h3>
         </div>
-        <a href="liderlik.php" class="section-link">Tam Liste</a>
+        <a href="#" class="section-link">Tam Liste</a>
       </div>
 
       <div class="leaderboard-list" id="leaderboard-list">
-        <!-- JavaScript ile Dolacak -->
-        <div style="padding: 20px; text-align: center; color: #aab6e8;">Yükleniyor...</div>
+        <!-- Liderlik tablosunu API'den çek -->
       </div>
     </section>
 
@@ -378,47 +388,124 @@
       overlay.classList.remove("active");
     });
 
-    // Liderlik Çekme
+    // Animasyonlar için Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    // Arama Fonksiyonu
+    const mainSearch = document.getElementById('mainSearch');
+    const searchResults = document.getElementById('searchResults');
+
+    mainSearch.addEventListener('input', async (e) => {
+        const val = e.target.value;
+        if (val.length < 2) {
+            searchResults.style.display = 'none';
+            return;
+        }
+
+        const res = await fetch(`api_search.php?q=${val}`);
+        const data = await res.json();
+
+        if (data.length > 0) {
+            searchResults.innerHTML = data.map(item => `
+                <div class="search-item" onclick="location.href='Ehliyet/test.html?test=${item.test_key}'">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div>
+                        <strong>${item.title}</strong>
+                        <span>${item.category}</span>
+                    </div>
+                </div>
+            `).join('');
+            searchResults.style.display = 'block';
+        } else {
+            searchResults.innerHTML = '<div class="search-item">Sonuç bulunamadı...</div>';
+            searchResults.style.display = 'block';
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!mainSearch.contains(e.target) && !searchResults.contains(e.target)) {
+            searchResults.style.display = 'none';
+        }
+    });
+
+    // Liderlik Tablosunu Doldur
     async function loadLeaderboard() {
         try {
             const res = await fetch('api_leaderboard.php');
             const data = await res.json();
             const list = document.getElementById('leaderboard-list');
-            if(!data || data.length === 0) {
-                list.innerHTML = '<div style="padding:20px; text-align:center; color:#aab6e8;">Henüz kayıt yok.</div>';
+            
+            if (!data || data.length === 0) {
+                list.innerHTML = '<div style="padding: 20px; text-align: center; color: #aab6e8;">Henüz skor kaydı yok. İlk sen ol!</div>';
                 return;
             }
+
             const rankClasses = ['gold', 'silver', 'bronze'];
+            const badges = ['Şampiyon', 'Efsane', 'Usta'];
+
             list.innerHTML = data.map((user, i) => `
                 <div class="leader-item">
                     <span class="rank ${rankClasses[i] || ''}">${i + 1}</span>
-                    <div class="leader-user"><strong>${user.username}</strong><small>${user.score} Puan</small></div>
-                    <span class="leader-badge">${user.quizzes_solved} Quiz</span>
+                    <div class="leader-user">
+                        <strong>${user.username}</strong>
+                        <small>${user.score} Toplam Puan</small>
+                    </div>
+                    <span class="leader-badge">${badges[i] || user.quizzes_solved + ' Quiz'}</span>
                 </div>
             `).join('');
-        } catch(e) {}
+        } catch (err) {
+            console.error('Liderlik hatası:', err);
+        }
     }
+
     loadLeaderboard();
 
-    // Arama
-    const mainSearch = document.getElementById('mainSearch');
-    const searchResults = document.getElementById('searchResults');
-    mainSearch.oninput = async (e) => {
-        const val = e.target.value;
-        if(val.length < 2) { searchResults.style.display = 'none'; return; }
-        const res = await fetch(`api_search.php?q=${val}`);
-        const data = await res.json();
-        if(data.length > 0) {
-            searchResults.innerHTML = data.map(item => `<div style="padding:10px 15px; cursor:pointer; color:white; border-bottom:1px solid rgba(255,255,255,0.05);" onclick="location.href='Ehliyet/test.html?test=${item.test_key}'">${item.title}</div>`).join('');
-            searchResults.style.display = 'block';
-        }
-    };
-
-    // Animasyonlar
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('show'); });
-    });
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
   </script>
+  <style>
+    .search-results-overlay {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        margin-top: 10px;
+        z-index: 1000;
+        display: none;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    .search-item {
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        cursor: pointer;
+        transition: 0.2s;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .search-item:hover { background: rgba(255, 255, 255, 0.05); }
+    .search-item i { color: #3b82f6; }
+    .search-item strong { display: block; color: white; font-size: 14px; }
+    .search-item span { font-size: 12px; color: #94a3b8; }
+    
+    /* Premium Buton Efekti */
+    .primary-btn {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        border: none !important;
+    }
+    .primary-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+  </style>
 </body>
 </html>

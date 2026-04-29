@@ -9,18 +9,20 @@
 <body>
 
     <div class="giris">
-   <form class="giris-form">
+   <form class="giris-form" id="girisForm" onsubmit="return girisYap(event)">
     <h2>Giriş Yap</h2>
     
     <div class="input-group">
         <label>Kullanıcı Adı</label>
-        <input type="text" placeholder="Kullanıcı adınızı girin" required>
+        <input type="text" id="kullaniciAdi" placeholder="Kullanıcı adınızı girin" required>
     </div>
 
     <div class="input-group">
         <label>Şifre</label>
-        <input type="password" placeholder="Şifrenizi girin" required>
+        <input type="password" id="sifre" placeholder="Şifrenizi girin" required>
     </div>
+
+    <p id="hataMesaji" style="font-size: 13px; text-align: center; display: none; margin-top: 10px; font-weight: bold;"></p>
 
     <button type="submit" class="giris-btn">Giriş</button>
 
@@ -30,6 +32,51 @@
     </div>
 </form>
 </div>
+
+<script>
+async function girisYap(event) {
+    event.preventDefault();
+
+    const kullaniciAdi = document.getElementById('kullaniciAdi').value;
+    const sifre = document.getElementById('sifre').value;
+    const hataMesaji = document.getElementById('hataMesaji');
+
+    try {
+        const response = await fetch('api_login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: kullaniciAdi,
+                password: sifre
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.status === 'success') {
+            hataMesaji.style.color = "#4CAF50";
+            hataMesaji.innerText = data.message;
+            hataMesaji.style.display = "block";
+            // Başarılı girişte ana sayfaya yönlendir
+            setTimeout(() => {
+                window.location.href = "index.php";
+            }, 1000);
+        } else {
+            hataMesaji.style.color = "#ff5f52";
+            hataMesaji.innerText = data.message;
+            hataMesaji.style.display = "block";
+        }
+    } catch (error) {
+        hataMesaji.style.color = "#ff5f52";
+        hataMesaji.innerText = "Sunucu ile bağlantı kurulamadı.";
+        hataMesaji.style.display = "block";
+    }
+
+    return false;
+}
+</script>
 
 </body>
 </html>

@@ -1,3 +1,1 @@
-function mesajGoster() {
-    alert("Buton çalıştı !");
-}
+// Ana sayfa scripti - gerektiğinde buraya fonksiyonlar ekleyin

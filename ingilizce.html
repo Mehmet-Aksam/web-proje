@@ -1,154 +1,169 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İngilizce Testleri</title>
+  <title>İngilizce Testleri - Sorcik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="ingilizce.css" />
 </head>
+
 <body>
 
-  <main>
-    <section class="hero">
-      <div class="hero-text">
-        <span>İngilizce Hazırlık</span>
-        <h1>İngilizce Testleri</h1>
-        <p>Kelime, gramer ve görsel sorularla İngilizceni geliştir.</p>
+  <div class="top-strip"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Menü</h2>
+      <button id="closeSidebar" aria-label="Menüyü kapat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="index.html" class=""><i class="fa-solid fa-house"></i> Ana Sayfa</a>
+      <a href="ingilizce.html" class="active"><i class="fa-solid fa-language"></i> İngilizce</a>
+      <a href="Ehliyet/ehliyet.html"><i class="fa-solid fa-car-side"></i> Ehliyet</a>
+      <a href="Genel Kültür/genelkültür.html"><i class="fa-solid fa-globe"></i> Genel Kültür</a>
+    </nav>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="header-wrap">
+    <header class="navbar">
+      <div class="nav-inner">
+
+        <div class="left-group">
+          <button class="menu-toggle" id="openSidebar" aria-label="Menüyü aç">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="brand">
+            <div class="brand-icon">
+              <div class="question-badge">?</div>
+              <span class="spark spark-1"></span>
+              <span class="spark spark-2"></span>
+            </div>
+
+            <div class="brand-copy">
+              <h1 class="brand-text">Sorcik</h1>
+              <p class="brand-subtitle">Sor, çöz, kazan</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <a href="index.html" class="menu-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Ana Sayfa</span>
+          </a>
+
+          <a href="ingilizce.html" class="menu-item active">
+            <i class="fa-solid fa-language"></i>
+            <span>İngilizce</span>
+          </a>
+
+          <a href="Ehliyet/ehliyet.html" class="menu-item">
+            <i class="fa-solid fa-car-side"></i>
+            <span>Ehliyet</span>
+          </a>
+        </nav>
+
+        <div class="actions">
+          <a href="cikis.php" class="secondary-btn">
+            <i class="fa-solid fa-sign-out-alt"></i>
+            <span>Çıkış</span>
+          </a>
+        </div>
+
+      </div>
+    </header>
+  </div>
+
+  <main class="home-page">
+    <section class="section-head">
+      <div>
+        <span class="section-mini">İngilizce Hazırlık</span>
+        <h3>Kelime Bilgisi</h3>
       </div>
     </section>
 
-    <section class="kategori">
-      <div class="kategori-baslik">
-        <div>
-          <h2>Kelime Bilgisi</h2>
-          <p>Günlük hayatta kullanılan temel İngilizce kelimeler.</p>
+    <section class="quiz-grid">
+      <article class="quiz-card">
+        <img src="imagesingilizce/temeleşyalar.jpg" class="quiz-image" alt="Temel Eşyalar" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Temel</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(12)</span>
-      </div>
-
-      <div class="kartlar">
-        <article class="kart">
-          <div class="kart-resim">
-            <img src="imagesingilizce/temeleşyalar.jpg" alt="Kelime testi 1" />
-            <span>Test 1</span>
-          </div>
-          <div class="kart-icerik">
-            <h3>Temel Eşyalar</h3>
-            <p>Kalem, kitap, masa gibi temel nesnelerin İngilizcelerini öğren.</p>
-            <div class="bilgiler">
-              <span>10 Soru</span>
-              <span>10 Dakika</span>
-            </div>
-            <a href="fotoquiz.html">Teste Başla</a>
-          </div>
-        </article>
-
-        <article class="kart">
-          <div class="kart-resim">
-            <img src="imagesingilizce/çeviri.jpg" alt="Kelime testi 2" />
-            <span>Test 2</span>
-          </div>
-          <div class="kart-icerik">
-            <h3>Cümle Çeviri Testi</h3>
-            <p>İngilizce cümlelerin Türkçe karşılıklarını bul.</p>
-            <div class="bilgiler">
-              <span>10 Soru</span>
-              <span>10 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-
-        <article class="kart">
-          <div class="kart-resim">
-            <img src="imagesingilizce/Ingilizce-Kelimeler.jpg" alt="Kelime testi 3" />
-            <span>Test 3</span>
-          </div>
-          <div class="kart-icerik">
-            <h3>Karışık Kelime Testi</h3>
-            <p>Temel nesneler, yiyecekler ve günlük kelimelerden oluşan test.</p>
-            <div class="bilgiler">
-              <span>15 Soru</span>
-              <span>15 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="kategori">
-      <div class="kategori-baslik">
-        <div>
-          <h2>Gramer</h2>
-          <p>Tense, yardımcı fiiller ve temel cümle yapıları.</p>
+        <h4>Temel Eşyalar Testi</h4>
+        <p>10 soru · 10 dakika · Kolay seviye</p>
+        <div class="quiz-tags">
+          <span>Kelime</span>
+          <span>Başlangıç</span>
         </div>
-        <span>(8)</span>
-      </div>
+        <a href="Ehliyet/test.html?test=ingilizce_test" class="quiz-btn">Teste Başla</a>
+      </article>
 
-      <div class="kartlar">
-        <article class="kart">
-          <div class="kart-resim">
-            <img src="imagesingilizce/to.jpg" alt="Gramer testi 1" />
-            <span>Test 1</span>
-          </div>
-          <div class="kart-icerik">
-            <h3>To Be Kullanımı</h3>
-            <p>Am, is, are kullanımını test et.</p>
-            <div class="bilgiler">
-              <span>10 Soru</span>
-              <span>10 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-
-        <article class="kart">
-          <div class="kart-resim">
-            <img src="imagesingilizce/simple.jpg" alt="Gramer testi 2" />
-            <span>Test 2</span>
-          </div>
-          <div class="kart-icerik">
-            <h3>Simple Present Tense</h3>
-            <p>Geniş zaman cümlelerini doğru kurmayı öğren.</p>
-            <div class="bilgiler">
-              <span>10 Soru</span>
-              <span>10 Dakika</span>
-            </div>
-            <a href="#">Teste Başla</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="kategori">
-      <div class="kategori-baslik">
-        <div>
-          <h2>Genel Deneme sınavı</h2>
-          <p>40 dakika içinde kendini test et </p>
+      <article class="quiz-card">
+        <img src="imagesingilizce/çeviri.jpg" class="quiz-image" alt="Çeviri" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Popüler</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(5)</span>
-      </div>
+        <h4>Cümle Çeviri Testi</h4>
+        <p>10 soru · 10 dakika · Orta seviye</p>
+        <div class="quiz-tags">
+          <span>Çeviri</span>
+          <span>Gramer</span>
+        </div>
+        <a href="Ehliyet/test.html?test=ingilizce_test" class="quiz-btn">Teste Başla</a>
+      </article>
 
-      <div class="kartlar">
-        <article class="kart">
-          <div class="kart-resim">
-            <img src="imagesingilizce/sınav.jpg" alt="Foto quiz 1" />
-            <span>Test 1</span>
-          </div>
-          <div class="kart-icerik">
-            <h3>Karma bir deneme </h3>
-            <p>kendini test et </p>
-            <div class="bilgiler">
-              <span>40 Soru</span>
-              <span>40 Dakika</span>
-            </div>
-            <a href="fotoquiz.html">Teste Başla</a>
-          </div>
-        </article>
-      </div>
+      <article class="quiz-card">
+        <img src="imagesingilizce/Ingilizce-Kelimeler.jpg" class="quiz-image" alt="Karışık Kelime" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Zor</span>
+          <i class="fa-regular fa-bookmark"></i>
+        </div>
+        <h4>Karışık Kelime Testi</h4>
+        <p>15 soru · 15 dakika · Zor seviye</p>
+        <div class="quiz-tags">
+          <span>Karma</span>
+          <span>Kelime</span>
+        </div>
+        <a href="Ehliyet/test.html?test=ingilizce_test" class="quiz-btn">Teste Başla</a>
     </section>
   </main>
 
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    const openSidebar = document.getElementById("openSidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    openSidebar.addEventListener("click", () => {
+      sidebar.classList.add("active");
+      overlay.classList.add("active");
+    });
+
+    closeSidebar.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+  </script>
+
 </body>
+
 </html>

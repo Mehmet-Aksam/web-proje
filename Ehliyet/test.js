@@ -260,6 +260,28 @@ function testiBitir() {
   soruKartiniGoster();
   bitirBtn.disabled = true;
   sonucuGoster();
+
+  // Skoru veritabanına kaydet
+  let dogru = 0, yanlis = 0;
+  testSorulari.forEach((soru, index) => {
+    const secilen = secimler[index];
+    if (secilen === soru.dogru) dogru++;
+    else if (secilen) yanlis++;
+  });
+  const toplam = testSorulari.length;
+  const skor = toplam > 0 ? Math.round((dogru / toplam) * 100) : 0;
+
+  fetch('../api_score.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      test_key: testAdi,
+      score: skor,
+      correct: dogru,
+      wrong: yanlis,
+      total: toplam
+    })
+  }).catch(() => {});
 }
 
 function sayaciBaslat() {
@@ -279,7 +301,7 @@ function sayaciBaslat() {
   }, 1000);
 }
 
-function testiHazirla() {
+function testiHazirla(data) {
   const bilgi = testBilgileri[testAdi];
 
   if (!testAdi) {
@@ -292,9 +314,9 @@ function testiHazirla() {
     return;
   }
 
-  if (!bilgi || !tumTestler[testAdi]) {
+  if (!bilgi || !data || data.length === 0) {
     testBaslik.textContent = "Test bulunamadı";
-    testAciklama.textContent = "Link yanlış olabilir veya bu test henüz eklenmemiş olabilir.";
+    testAciklama.textContent = "Link yanlış olabilir veya bu test henüz veritabanında yok.";
     sorularAlani.innerHTML = "<p>Test verisi bulunamadı.</p>";
     bitirBtn.disabled = true;
     geriSoruBtn.disabled = true;
@@ -302,7 +324,7 @@ function testiHazirla() {
     return;
   }
 
-  testSorulari = tumTestler[testAdi];
+  testSorulari = data;
   testBaslik.textContent = bilgi.baslik;
   testAciklama.textContent = bilgi.aciklama;
   kalanSure = bilgi.sureDakika * 60;
@@ -328,23 +350,26 @@ yenidenBtn.addEventListener("click", () => {
   window.location.reload();
 });
 
-fetch("sorular.json")
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error("JSON yüklenemedi");
-    }
-    return res.json();
-  })
-  .then((data) => {
-    tumTestler = data;
-    testiHazirla();
-  })
-  .catch((err) => {
-    console.error(err);
-    testBaslik.textContent = "Veri yüklenemedi";
-    testAciklama.textContent = "sorular.json dosyası bulunamadı veya hatalı.";
-    sorularAlani.innerHTML = "<p>Sorular yüklenirken bir hata oluştu.</p>";
-    bitirBtn.disabled = true;
-    geriSoruBtn.disabled = true;
-    ileriSoruBtn.disabled = true;
-  });
+if (testAdi) {
+  fetch(`../api_questions.php?category=${testAdi}`)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Veritabanından sorular yüklenemedi");
+      }
+      return res.json();
+    })
+    .then((data) => {
+      testiHazirla(data);
+    })
+    .catch((err) => {
+      console.error(err);
+      testBaslik.textContent = "Veri yüklenemedi";
+      testAciklama.textContent = "Veritabanına bağlanılamadı.";
+      sorularAlani.innerHTML = "<p>Sorular yüklenirken bir hata oluştu.</p>";
+      bitirBtn.disabled = true;
+      geriSoruBtn.disabled = true;
+      ileriSoruBtn.disabled = true;
+    });
+} else {
+  testiHazirla(null);
+}

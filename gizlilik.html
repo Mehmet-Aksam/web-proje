@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gizlilik - Sorcik</title>
+
+<style>
+
+/* GENEL AYAR */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172f, #1f2a4d);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: 
+    linear-gradient(rgba(15, 20, 50, 0.7), rgba(10, 15, 40, 0.9)),
+    url("arkaplan.jpg") center/cover no-repeat;
+}
+
+/* BAŞLIK */
+.Başlık {
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.Başlık h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #ffd84c;
+}
+
+/* ORTA KARTLAR */
+.Veri, .Amac {
+  width: 80%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.Veri h1, .Amac h1 {
+  color: #ffd84c;
+}
+
+.Veri p, .Amac p {
+  line-height: 1.6;
+}
+
+/* EKİP KART */
+.kart {
+  width: 80%;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.kart h2 {
+  margin-bottom: 20px;
+  color: #ffd84c;
+}
+
+/* EKİP ALANI */
+.ekip-alani {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.ekip-uye {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 15px;
+  border-radius: 15px;
+  width: 150px;
+  transition: 0.3s;
+}
+
+.ekip-uye:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ekip-uye img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.ekip-uye h3 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.ekip-uye span {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* BUTON */
+.buton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: #ffd84c;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.buton:hover {
+  background: #ffbf00;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="Başlık">
+  <h1>Gizlilik</h1>
+</div>
+
+<div class="Veri">
+  <h1>Kullanıcı Verileri</h1>
+  <p>Site kullanıcıların 3. taraflar ile paylaşmak istemediği veriler sitemiz tarafından saklanmaktadır</p>
+</div>
+
+<div class="Amac">
+  <h1>Proje</h1>
+  <p>Sitemiz ders ödevi için kurulmuş olup ticari amaç taşımamaktadır</p>
+</div>
+
+<div class="kart">
+  <h2>Ekibimiz</h2>
+
+  <div class="ekip-alani">
+    <div class="ekip-uye">
+      <img src="https://via.placeholder.com/80">
+      <h3>Ahmet Dağdeviren</h3>
+      <span>Developer</span>
+    </div>
+
+    <div class="ekip-uye">
+      <img src="https://via.placeholder.com/80">
+      <h3>Mehmet Akşam</h3>
+      <span>Developer</span>
+    </div>
+
+    <div class="ekip-uye">
+      <img src="https://via.placeholder.com/80">
+      <h3>Emirhan Şanlıtürk</h3>
+      <span>Developer</span>
+    </div>
+  </div>
+
+  <a href="index.html" class="buton">Ana Sayfaya Dön</a>
+</div>
+
+</body>
+</html>

@@ -9,7 +9,7 @@
 <body>
 
 <div class="kayit-scope">
-    <form class="kayit-form" onsubmit="return kontrolEt(event)">
+    <form class="kayit-form" id="kayitForm" onsubmit="return kayitOl(event)">
     <h2>Hesap Oluştur</h2>
     
     <div class="input-group">
@@ -32,7 +32,7 @@
         <input type="password" id="sifreTekrar" placeholder="Şifreyi tekrar girin" required>
     </div>
 
-    <p id="hataMesaji" style="color: #ff5f52; font-size: 13px; text-align: center; display: none; margin-top: 10px; font-weight: bold;"></p>
+    <p id="hataMesaji" style="font-size: 13px; text-align: center; display: none; margin-top: 10px; font-weight: bold;"></p>
 
     <button type="submit" class="kayit-btn">Kayıt Ol</button>
 
@@ -42,6 +42,63 @@
     </div>
 </form>
 </div>
+
+<script>
+async function kayitOl(event) {
+    event.preventDefault(); // Formun normal gönderimini engelle
+
+    const kullaniciAdi = document.getElementById('kullaniciAdi').value;
+    const eposta = document.getElementById('eposta').value;
+    const sifre = document.getElementById('sifre').value;
+    const sifreTekrar = document.getElementById('sifreTekrar').value;
+    const hataMesaji = document.getElementById('hataMesaji');
+
+    // Şifre eşleşme kontrolü
+    if (sifre !== sifreTekrar) {
+        hataMesaji.style.color = "#ff5f52";
+        hataMesaji.innerText = "Şifreler eşleşmiyor!";
+        hataMesaji.style.display = "block";
+        return false;
+    }
+
+    try {
+        const response = await fetch('api_register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: kullaniciAdi,
+                email: eposta,
+                password: sifre,
+                password_confirm: sifreTekrar
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.status === 'success') {
+            hataMesaji.style.color = "#4CAF50"; // Başarılı rengi yeşil
+            hataMesaji.innerText = data.message;
+            hataMesaji.style.display = "block";
+            // Kısa bir süre sonra login sayfasına yönlendir
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 2000);
+        } else {
+            hataMesaji.style.color = "#ff5f52";
+            hataMesaji.innerText = data.message;
+            hataMesaji.style.display = "block";
+        }
+    } catch (error) {
+        hataMesaji.style.color = "#ff5f52";
+        hataMesaji.innerText = "Sunucu ile bağlantı kurulamadı.";
+        hataMesaji.style.display = "block";
+    }
+
+    return false;
+}
+</script>
 
 </body>
 </html>

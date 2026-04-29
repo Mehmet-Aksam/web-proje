@@ -4,257 +4,137 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ehliyet Testleri</title>
-  <link rel="stylesheet" href="ehliyet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-  <main>
-    <section>
+  <div class="top-strip"></div>
+  <div class="header-wrap">
+    <header class="navbar">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-icon">
+            <div class="question-badge"><i class="fa-solid fa-car"></i></div>
+          </div>
+          <div class="brand-copy">
+            <h1 class="brand-text">Ehliyet</h1>
+            <p class="brand-subtitle">Sınav Hazırlık Testleri</p>
+          </div>
+        </div>
+        <nav class="menu">
+          <a href="../index.html" class="menu-item"><i class="fa-solid fa-house"></i><span>Ana Sayfa</span></a>
+          <a href="ehliyet.html" class="menu-item active"><i class="fa-solid fa-car-side"></i><span>Ehliyet</span></a>
+          <a href="../ingilizce.html" class="menu-item"><i class="fa-solid fa-language"></i><span>İngilizce</span></a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <main class="home-page">
+    <section class="section-head">
       <div>
-        <span>Ehliyet Hazırlık</span>
-        <h1>Ehliyet Testleri</h1>
-        <p>Konulara göre test çöz, eksiklerini tamamla ve sınava hazırlan.</p>
+        <span class="section-mini">Trafik</span>
+        <h3>Trafik ve Çevre Bilgisi</h3>
       </div>
     </section>
 
-    <section>
-      <div>
-        <div>
-          <h2>Trafik ve Çevre Bilgisi</h2>
-          <p>Levhalar, trafik kuralları ve çevre bilgisi testleri.</p>
+    <section class="quiz-grid">
+      <article class="quiz-card">
+        <img src="fotolar/trafikçevre.jpg" class="quiz-image" alt="Levhalar" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Popüler</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(23)</span>
-      </div>
+        <h4>Levhalar ve Trafik İşaretleri</h4>
+        <p>20 soru · 25 dakika · Görselli</p>
+        <div class="quiz-tags">
+          <span>Levhalar</span>
+          <span>Trafik</span>
+        </div>
+        <a href="test.html?test=levhalar_test_1" class="quiz-btn">Teste Başla</a>
+      </article>
 
+      <article class="quiz-card">
+        <img src="fotolar/trafikgenel.png" class="quiz-image" alt="Kurallar" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Temel</span>
+          <i class="fa-regular fa-bookmark"></i>
+        </div>
+        <h4>Genel Trafik Kuralları</h4>
+        <p>20 soru · 25 dakika · Orta</p>
+        <div class="quiz-tags">
+          <span>Kurallar</span>
+          <span>Genel</span>
+        </div>
+        <a href="test.html?test=levhalar_test_2" class="quiz-btn">Teste Başla</a>
+      </article>
+      
+      <article class="quiz-card">
+        <img src="fotolar/yolver.jpg" class="quiz-image" alt="Karışık" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Zor</span>
+          <i class="fa-regular fa-bookmark"></i>
+        </div>
+        <h4>Karışık Trafik Testi</h4>
+        <p>20 soru · 25 dakika · Zor</p>
+        <div class="quiz-tags">
+          <span>Karma</span>
+          <span>Deneme</span>
+        </div>
+        <a href="test.html?test=levhalar_test_3" class="quiz-btn">Teste Başla</a>
+      </article>
+    </section>
+
+    <section class="section-head">
       <div>
-        <article>
-          <div>
-            <img src="fotolar/Trafik1.png" alt="Trafik test 1" />
-            <span>Test 1</span>
-          </div>
-          <div>
-            <h3>Levhalar ve Trafik İşaretleri</h3>
-            <p>Temel trafik levhaları ve uyarı işaretleri üzerine test.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>25 Dakika</span>
-            </div>
-            <a href="test.html?test=levhalar_test_1">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/trafikçevre.jpg" alt="Trafik test 2" />
-            <span>Test 2</span>
-          </div>
-          <div>
-            <h3>Genel Trafik Kuralları</h3>
-            <p>Trafikte uyulması gereken temel kurallar ve çevre bilgisi.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>25 Dakika</span>
-            </div>
-            <a href="test.html?test=levhalar_test_2">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/trafikgenel.png" alt="Trafik test 3" />
-            <span>Test 3</span>
-          </div>
-          <div>
-            <h3>Karışık Trafik Testi</h3>
-            <p>Levhalar, kurallar ve genel trafik bilgisini karışık çöz.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>25 Dakika</span>
-            </div>
-            <a href="test.html?test=levhalar_test_3">Teste Başla</a>
-          </div>
-        </article>
+        <span class="section-mini">Acil Durum</span>
+        <h3>İlk Yardım</h3>
       </div>
     </section>
 
-    <section>
-      <div>
-        <div>
-          <h2>İlk Yardım</h2>
-          <p>Temel ilk yardım ve acil durum testleri.</p>
+    <section class="quiz-grid">
+      <article class="quiz-card">
+        <img src="fotolar/ilkyardım1.jpeg" class="quiz-image" alt="İlk Yardım" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Önemli</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(12)</span>
-      </div>
+        <h4>Temel İlk Yardım Bilgisi</h4>
+        <p>20 soru · 20 dakika</p>
+        <div class="quiz-tags">
+          <span>İlk Yardım</span>
+          <span>Hayat Kurtarır</span>
+        </div>
+        <a href="test.html?test=ilkyardim_test_1" class="quiz-btn">Teste Başla</a>
+      </article>
+    </section>
 
+    <section class="section-head">
       <div>
-        <article>
-          <div>
-            <img src="fotolar/ilkyardım1.jpeg" alt="İlk yardım test 1" />
-            <span>Test 1</span>
-          </div>
-          <div>
-            <h3>Temel İlk Yardım Bilgisi</h3>
-            <p>Yaralanma ve acil durumlarda temel müdahale bilgileri.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="test.html?test=ilkyardim_test_1">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/ilkyardım2.png" alt="İlk yardım test 2" />
-            <span>Test 2</span>
-          </div>
-          <div>
-            <h3>Kaza Anında Müdahale</h3>
-            <p>Trafik kazalarında doğru ilk yardım adımlarını öğren.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="test.html?test=ilkyardim_test_2">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/ilkyardım3.jpg" alt="İlk yardım test 3" />
-            <span>Test 3</span>
-          </div>
-          <div>
-            <h3>Karışık İlk Yardım</h3>
-            <p>İlk yardım konularını karışık sorularla tekrar et.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="test.html?test=ilkyardim_test_3">Teste Başla</a>
-          </div>
-        </article>
+        <span class="section-mini">Teknik Bilgi</span>
+        <h3>Motor ve Araç Tekniği</h3>
       </div>
     </section>
 
-    <section>
-      <div>
-        <div>
-          <h2>Araç Tekniği</h2>
-          <p>Motor, bakım ve araç tekniği testleri.</p>
+    <section class="quiz-grid">
+      <article class="quiz-card">
+        <img src="fotolar/motor1.png" class="quiz-image" alt="Motor" />
+        <div class="quiz-top">
+          <span class="quiz-badge">Zor</span>
+          <i class="fa-regular fa-bookmark"></i>
         </div>
-        <span>(9)</span>
-      </div>
-
-      <div>
-        <article>
-          <div>
-            <img src="fotolar/motor1.png" alt="Araç tekniği test 1" />
-            <span>Test 1</span>
-          </div>
-          <div>
-            <h3>Motor ve Parçalar</h3>
-            <p>Araç motoru ve temel parçalar hakkında test soruları.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="test.html?test=arac_test_1">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/arac2.png" alt="Araç tekniği test 2" />
-            <span>Test 2</span>
-          </div>
-          <div>
-            <h3>Bakım ve Kontroller</h3>
-            <p>Günlük araç kontrolleri ve bakım süreçleri üzerine test.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="test.html?test=arac_test_2">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/arac3.jpg" alt="Araç tekniği test 3" />
-            <span>Test 3</span>
-          </div>
-          <div>
-            <h3>Karışık Araç Tekniği</h3>
-            <p>Motor, bakım ve teknik bilgileri bir arada çöz.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>20 Dakika</span>
-            </div>
-            <a href="test.html?test=arac_test_3">Teste Başla</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div>
-        <div>
-          <h2>Trafik Adabı</h2>
-          <p>Empati, saygı ve doğru sürüş davranışı testleri.</p>
+        <h4>Motor ve Parçalar</h4>
+        <p>20 soru · 20 dakika</p>
+        <div class="quiz-tags">
+          <span>Motor</span>
+          <span>Mekanik</span>
         </div>
-        <span>(6)</span>
-      </div>
-
-      <div>
-        <article>
-          <div>
-            <img src="fotolar/adab1.png" alt="Trafik adabı test 1" />
-            <span>Test 1</span>
-          </div>
-          <div>
-            <h3>Empati ve Saygı</h3>
-            <p>Trafikte diğer sürücülere ve yayalara karşı doğru davranışlar.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>15 Dakika</span>
-            </div>
-            <a href="test.html?test=adab_test_1">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/adab2.jpg" alt="Trafik adabı test 2" />
-            <span>Test 2</span>
-          </div>
-          <div>
-            <h3>Doğru Sürüş Davranışı</h3>
-            <p>Sürücü sorumluluğu ve trafik adabına uygun hareket etme.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>15 Dakika</span>
-            </div>
-            <a href="test.html?test=adab_test_2">Teste Başla</a>
-          </div>
-        </article>
-
-        <article>
-          <div>
-            <img src="fotolar/adab3.jpg" alt="Trafik adabı test 3" />
-            <span>Test 3</span>
-          </div>
-          <div>
-            <h3>Karışık Trafik Adabı</h3>
-            <p>Trafik adabı konularını karışık sorularla pekiştir.</p>
-            <div>
-              <span>20 Soru</span>
-              <span>15 Dakika</span>
-            </div>
-            <a href="test.html?test=adab_test_3">Teste Başla</a>
-          </div>
-        </article>
-      </div>
+        <a href="test.html?test=arac_test_1" class="quiz-btn">Teste Başla</a>
+      </article>
     </section>
   </main>
 
