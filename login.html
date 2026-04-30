@@ -3,78 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Giriş Yap - Sorcik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      .login-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        position: relative;
+      }
+
+      .login-container {
+        width: 100%;
+        max-width: 480px;
+      }
+
+      .login-brand {
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .login-brand .brand-icon {
+        width: 56px; height: 56px; margin: 0 auto 12px;
+        background: linear-gradient(135deg, #ffcc3c, #ff6b6b);
+        border-radius: 16px; display: flex; align-items: center; justify-content: center;
+        font-size: 28px; font-weight: 900; color: #fff;
+        box-shadow: 0 4px 20px rgba(255,204,60,0.3);
+      }
+      .login-brand h1 {
+        font-family: 'Baloo 2', cursive; font-size: 32px;
+        background: linear-gradient(135deg, #fff, #aab6e8);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .login-brand p { color: #aab6e8; font-size: 14px; }
+
+      /* Tab Switcher */
+      .login-tabs {
+        display: flex; gap: 8px; margin-bottom: 24px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 16px; padding: 4px;
+      }
+      .login-tab {
+        flex: 1; padding: 12px 16px; border-radius: 12px;
+        border: none; background: transparent;
+        color: #aab6e8; font-weight: 700; font-size: 14px;
+        cursor: pointer; transition: 0.2s;
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+      }
+      .login-tab.active {
+        background: linear-gradient(135deg, rgba(0,255,255,0.15), rgba(59,130,246,0.15));
+        color: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+      .login-tab:hover:not(.active) { color: #fff; }
+      .login-tab i { font-size: 16px; }
+
+      /* Form Card */
+      .login-card {
+        background: rgba(10,0,21,0.85);
+        border: 1px solid rgba(0,255,255,0.2);
+        border-radius: 24px;
+        padding: 32px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      }
+
+      .login-form { display: block; }
+      .login-form.hidden { display: none; }
+
+      .form-title {
+        font-size: 22px; font-weight: 800; margin-bottom: 6px; color: #fff;
+      }
+      .form-subtitle {
+        font-size: 13px; color: #aab6e8; margin-bottom: 24px;
+      }
+
+      .field { margin-bottom: 16px; }
+      .field label {
+        display: block; font-size: 13px; font-weight: 600;
+        color: #aab6e8; margin-bottom: 6px;
+      }
+      .field .input-wrap {
+        position: relative; display: flex; align-items: center;
+      }
+      .field .input-wrap i {
+        position: absolute; left: 14px; color: #64748b; font-size: 14px;
+      }
+      .field input {
+        width: 100%; padding: 13px 16px 13px 42px; border-radius: 14px;
+        border: 1px solid rgba(0,255,255,0.2);
+        background: rgba(255,255,255,0.05);
+        color: #fff; font-size: 14px; font-family: inherit;
+        transition: 0.2s;
+      }
+      .field input:focus {
+        outline: none; border-color: #00FFFF;
+        box-shadow: 0 0 0 3px rgba(0,255,255,0.12);
+      }
+      .field input::placeholder { color: #475569; }
+
+      .login-btn {
+        width: 100%; padding: 14px; border-radius: 16px; border: none;
+        font-weight: 800; font-size: 15px; cursor: pointer;
+        transition: 0.2s; margin-top: 8px;
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+      }
+      .login-btn.user-btn {
+        background: linear-gradient(135deg, #00FFFF, #0099FF); color: #fff;
+      }
+      .login-btn.admin-btn-style {
+        background: linear-gradient(135deg, #ffcc3c, #ff6b6b); color: #1a0033;
+      }
+      .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+
+      .msg {
+        text-align: center; padding: 10px; border-radius: 12px;
+        font-size: 13px; font-weight: 700; margin-top: 16px; display: none;
+      }
+      .msg.success { background: rgba(0,200,83,0.15); color: #00e676; display: block; }
+      .msg.error { background: rgba(255,95,82,0.15); color: #ff5f52; display: block; }
+
+      .form-footer {
+        text-align: center; margin-top: 20px; font-size: 13px; color: #aab6e8;
+      }
+      .form-footer a {
+        color: #00FFFF; text-decoration: none; font-weight: 700;
+      }
+      .form-footer a:hover { text-decoration: underline; }
+
+      .admin-info {
+        display: flex; align-items: center; gap: 10px;
+        background: rgba(255,204,60,0.08);
+        border: 1px solid rgba(255,204,60,0.2);
+        border-radius: 12px;
+        padding: 12px 16px; margin-bottom: 20px;
+      }
+      .admin-info i { color: #ffcc3c; font-size: 18px; }
+      .admin-info p { color: #ffd86e; font-size: 12px; line-height: 1.5; }
+
+      .back-home {
+        display: block; text-align: center; margin-top: 24px;
+        color: #aab6e8; font-size: 13px; text-decoration: none;
+      }
+      .back-home:hover { color: #fff; }
+    </style>
 </head>
 <body>
+  <div class="top-strip"></div>
 
-    <div class="giris">
-   <form class="giris-form" id="girisForm" onsubmit="return girisYap(event)">
-    <h2>Giriş Yap</h2>
-    
-    <div class="input-group">
-        <label>Kullanıcı Adı</label>
-        <input type="text" id="kullaniciAdi" placeholder="Kullanıcı adınızı girin" required>
+  <div class="login-page">
+    <div class="login-container">
+
+      <div class="login-brand">
+        <div class="brand-icon">?</div>
+        <h1>Sorcik</h1>
+        <p>Sor, çöz, kazan</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="login-tabs">
+        <button class="login-tab active" onclick="switchTab('user')" id="tab-user">
+          <i class="fa-regular fa-user"></i> Kullanıcı Girişi
+        </button>
+        <button class="login-tab" onclick="switchTab('admin')" id="tab-admin">
+          <i class="fa-solid fa-shield-halved"></i> Admin Girişi
+        </button>
+      </div>
+
+      <div class="login-card">
+
+        <!-- KULLANICI GİRİŞ FORMU -->
+        <form class="login-form" id="userForm" onsubmit="return girisYap(event, 'user')">
+          <h3 class="form-title">Hoş Geldin 👋</h3>
+          <p class="form-subtitle">Quiz çözmek ve yarışmak için giriş yap.</p>
+
+          <div class="field">
+            <label>Kullanıcı Adı</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-user"></i>
+              <input type="text" id="userUsername" placeholder="Kullanıcı adınız" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Şifre</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="userPassword" placeholder="Şifreniz" required>
+            </div>
+          </div>
+
+          <div id="userMsg" class="msg"></div>
+
+          <button type="submit" class="login-btn user-btn">
+            <i class="fa-solid fa-right-to-bracket"></i> Giriş Yap
+          </button>
+
+          <div class="form-footer">
+            <p>Hesabın yok mu? <a href="kayit.html">Kayıt Ol</a></p>
+          </div>
+        </form>
+
+        <!-- ADMİN GİRİŞ FORMU -->
+        <form class="login-form hidden" id="adminForm" onsubmit="return girisYap(event, 'admin')">
+          <h3 class="form-title">Admin Paneli 🔒</h3>
+          <p class="form-subtitle">Yönetim paneline erişmek için admin bilgilerinizi girin.</p>
+
+          <div class="admin-info">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>Bu giriş yalnızca admin yetkisine sahip hesaplar içindir. Yetkisiz girişler engellenecektir.</p>
+          </div>
+
+          <div class="field">
+            <label>Admin Kullanıcı Adı</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-shield-halved"></i>
+              <input type="text" id="adminUsername" placeholder="Admin kullanıcı adı" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Admin Şifresi</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-key"></i>
+              <input type="password" id="adminPassword" placeholder="Admin şifresi" required>
+            </div>
+          </div>
+
+          <div id="adminMsg" class="msg"></div>
+
+          <button type="submit" class="login-btn admin-btn-style">
+            <i class="fa-solid fa-shield-halved"></i> Admin Girişi
+          </button>
+        </form>
+
+      </div>
+
+      <a href="index.html" class="back-home">
+        <i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön
+      </a>
     </div>
-
-    <div class="input-group">
-        <label>Şifre</label>
-        <input type="password" id="sifre" placeholder="Şifrenizi girin" required>
-    </div>
-
-    <p id="hataMesaji" style="font-size: 13px; text-align: center; display: none; margin-top: 10px; font-weight: bold;"></p>
-
-    <button type="submit" class="giris-btn">Giriş</button>
-
-    <div class="form-ici-link">
-        <p>Henüz hesabınız yok mu?</p>
-        <p>Önce <a href="kayit.html">Kayıt Olunuz</a></p>
-    </div>
-</form>
-</div>
+  </div>
 
 <script>
-async function girisYap(event) {
-    event.preventDefault();
+function switchTab(tab) {
+  document.getElementById('tab-user').classList.toggle('active', tab === 'user');
+  document.getElementById('tab-admin').classList.toggle('active', tab === 'admin');
+  document.getElementById('userForm').classList.toggle('hidden', tab !== 'user');
+  document.getElementById('adminForm').classList.toggle('hidden', tab !== 'admin');
+  // Mesajları temizle
+  document.getElementById('userMsg').className = 'msg';
+  document.getElementById('userMsg').textContent = '';
+  document.getElementById('adminMsg').className = 'msg';
+  document.getElementById('adminMsg').textContent = '';
+}
 
-    const kullaniciAdi = document.getElementById('kullaniciAdi').value;
-    const sifre = document.getElementById('sifre').value;
-    const hataMesaji = document.getElementById('hataMesaji');
+async function girisYap(event, type) {
+  event.preventDefault();
 
-    try {
-        const response = await fetch('api_login.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: kullaniciAdi,
-                password: sifre
-            })
-        });
+  const isAdmin = type === 'admin';
+  const username = document.getElementById(isAdmin ? 'adminUsername' : 'userUsername').value;
+  const password = document.getElementById(isAdmin ? 'adminPassword' : 'userPassword').value;
+  const msgEl = document.getElementById(isAdmin ? 'adminMsg' : 'userMsg');
 
-        const data = await response.json();
+  try {
+    const response = await fetch('api_login.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
 
-        if (data.status === 'success') {
-            hataMesaji.style.color = "#4CAF50";
-            hataMesaji.innerText = data.message;
-            hataMesaji.style.display = "block";
-            // Başarılı girişte ana sayfaya yönlendir
-            setTimeout(() => {
-                window.location.href = "index.php";
-            }, 1000);
-        } else {
-            hataMesaji.style.color = "#ff5f52";
-            hataMesaji.innerText = data.message;
-            hataMesaji.style.display = "block";
-        }
-    } catch (error) {
-        hataMesaji.style.color = "#ff5f52";
-        hataMesaji.innerText = "Sunucu ile bağlantı kurulamadı.";
-        hataMesaji.style.display = "block";
+    const data = await response.json();
+
+    if (data.status === 'success') {
+      // Admin girişinde role kontrolü
+      if (isAdmin && data.role !== 'admin') {
+        msgEl.className = 'msg error';
+        msgEl.textContent = 'Bu hesap admin yetkisine sahip değil.';
+        // Oturumu kapat
+        fetch('cikis.php');
+        return false;
+      }
+
+      msgEl.className = 'msg success';
+      msgEl.textContent = isAdmin ? 'Admin girişi başarılı! Yönlendiriliyorsunuz...' : data.message;
+
+      setTimeout(() => {
+        window.location.href = isAdmin ? 'admin.php' : 'index.php';
+      }, 1000);
+    } else {
+      msgEl.className = 'msg error';
+      msgEl.textContent = data.message;
     }
+  } catch (error) {
+    msgEl.className = 'msg error';
+    msgEl.textContent = 'Sunucu ile bağlantı kurulamadı.';
+  }
 
-    return false;
+  return false;
 }
 </script>
 

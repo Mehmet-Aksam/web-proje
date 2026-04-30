@@ -67,6 +67,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
     <div class="admin-tabs">
       <button class="admin-tab active" onclick="showTab('tests')"><i class="fa-solid fa-list"></i> Testler</button>
       <button class="admin-tab" onclick="showTab('questions')"><i class="fa-solid fa-circle-question"></i> Sorular</button>
+      <button class="admin-tab" onclick="showTab('pending')"><i class="fa-solid fa-clock"></i> Onay Bekleyenler <span id="pending-badge" style="background:#ff5f52; color:#fff; border-radius:50%; padding:2px 7px; font-size:11px; margin-left:4px; display:none;">0</span></button>
       <button class="admin-tab" onclick="showTab('users')"><i class="fa-solid fa-users"></i> Kullanıcılar</button>
     </div>
 
@@ -121,12 +122,86 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['role']) || $_SESSION['role
         </div>
         <button class="admin-btn primary" onclick="addQuestion()"><i class="fa-solid fa-plus"></i> Soru Ekle</button>
       </div>
+
+      <!-- TOPLU SORU EKLEME: CSV -->
+      <div class="admin-card">
+        <h3><i class="fa-solid fa-file-csv"></i> CSV ile Toplu Soru Yükle</h3>
+        <p style="color:#aab6e8; font-size:13px; margin-bottom:16px;">
+          Excel'de soruları hazırlayıp <b>.csv</b> olarak kaydedin. CSV formatı:
+          <code style="display:block; background:rgba(0,255,255,0.08); padding:12px; border-radius:10px; margin-top:8px; font-size:12px; color:#00FFFF; white-space:pre;">soru;a;b;c;d;dogru;resim
+Türkiye'nin başkenti neresidir?;İstanbul;Ankara;İzmir;Bursa;b;
+Hangi gezegen Güneş'e en yakındır?;Venüs;Mars;Merkür;Jüpiter;c;</code>
+          <span style="display:block; margin-top:8px; color:#ffd86e;">⚠️ Ayırıcı: noktalı virgül (;) · Doğru cevap: a/b/c/d · Resim opsiyonel</span>
+        </p>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Test Kategorisi</label>
+            <select id="csv-category"></select>
+          </div>
+          <div class="form-field">
+            <label>CSV Dosyası Seç</label>
+            <input type="file" id="csv-file" accept=".csv,.txt" style="padding:10px;">
+          </div>
+        </div>
+        <div id="csv-preview" style="display:none; margin:16px 0;"></div>
+        <div style="display:flex; gap:10px;">
+          <button class="admin-btn primary" onclick="previewCSV()"><i class="fa-solid fa-eye"></i> Önizle</button>
+          <button class="admin-btn primary" onclick="uploadCSV()" id="csv-upload-btn" style="display:none;"><i class="fa-solid fa-upload"></i> <span id="csv-count">0</span> Soru Yükle</button>
+        </div>
+      </div>
+
+      <!-- TOPLU SORU EKLEME: METİN -->
+      <div class="admin-card">
+        <h3><i class="fa-solid fa-paste"></i> Metin ile Toplu Soru Ekle</h3>
+        <p style="color:#aab6e8; font-size:13px; margin-bottom:16px;">
+          Her soruyu aşağıdaki formatta yazın. Sorular arası boş satır bırakın:
+          <code style="display:block; background:rgba(0,255,255,0.08); padding:12px; border-radius:10px; margin-top:8px; font-size:12px; color:#00FFFF; white-space:pre;">S: Türkiye'nin başkenti neresidir?
+A: İstanbul
+B: Ankara
+C: İzmir
+D: Bursa
+Doğru: B
+
+S: 2+2 kaçtır?
+A: 3
+B: 5
+C: 4
+D: 6
+Doğru: C</code>
+        </p>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Test Kategorisi</label>
+            <select id="bulk-category"></select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-field">
+            <label>Soruları Yapıştırın</label>
+            <textarea id="bulk-text" placeholder="S: Soru metni?&#10;A: Şık A&#10;B: Şık B&#10;C: Şık C&#10;D: Şık D&#10;Doğru: B&#10;&#10;S: İkinci soru?&#10;..." style="min-height:200px; font-family:monospace; font-size:13px;"></textarea>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button class="admin-btn primary" onclick="parseBulkText()"><i class="fa-solid fa-check-double"></i> Soruları Kontrol Et & Yükle</button>
+          <span id="bulk-status" style="color:#aab6e8; font-size:13px;"></span>
+        </div>
+      </div>
+
       <div class="admin-card">
         <h3><i class="fa-solid fa-table"></i> Mevcut Sorular</h3>
         <div class="form-row" style="margin-bottom:16px">
           <div class="form-field"><label>Filtreleme</label><select id="q-filter" onchange="loadQuestions()"><option value="">Tüm Sorular</option></select></div>
         </div>
         <div id="questions-table">Yükleniyor...</div>
+      </div>
+    </div>
+
+    <!-- ONAY BEKLEYENLERİ -->
+    <div class="admin-section" id="sec-pending">
+      <div class="admin-card">
+        <h3><i class="fa-solid fa-clock"></i> Kullanıcı Soru Önerileri</h3>
+        <p style="color:#aab6e8; font-size:13px; margin-bottom:16px;">Kullanıcıların gönderdiği sorular burada listelenir. Onayladığınız sorular otomatik olarak ilgili teste eklenir.</p>
+        <div id="pending-table">Yükleniyor...</div>
       </div>
     </div>
 
@@ -147,6 +222,7 @@ function showTab(tab) {
   event.target.closest('.admin-tab').classList.add('active');
   if (tab === 'tests') loadTests();
   if (tab === 'questions') loadQuestions();
+  if (tab === 'pending') loadPending();
   if (tab === 'users') loadUsers();
 }
 
@@ -165,7 +241,13 @@ async function loadTests() {
   // Soru kategori dropdown'ları güncelle
   const qCat = document.getElementById('q-category');
   const qFilter = document.getElementById('q-filter');
-  qCat.innerHTML = tests.map(t => `<option value="${t.test_key}">${t.title} (${t.test_key})</option>`).join('');
+  const csvCat = document.getElementById('csv-category');
+  const bulkCat = document.getElementById('bulk-category');
+
+  const optionsHtml = tests.map(t => `<option value="${t.test_key}">${t.title} (${t.test_key})</option>`).join('');
+  qCat.innerHTML = optionsHtml;
+  csvCat.innerHTML = optionsHtml;
+  bulkCat.innerHTML = optionsHtml;
   qFilter.innerHTML = '<option value="">Tüm Sorular</option>' + tests.map(t => `<option value="${t.test_key}">${t.title}</option>`).join('');
 
   if (tests.length === 0) {
@@ -220,6 +302,168 @@ async function deleteQuestion(id) {
   loadQuestions();
 }
 
+// ===== CSV TOPLU SORU EKLEME =====
+let csvParsedQuestions = [];
+
+function previewCSV() {
+  const fileInput = document.getElementById('csv-file');
+  const preview = document.getElementById('csv-preview');
+  const uploadBtn = document.getElementById('csv-upload-btn');
+
+  if (!fileInput.files[0]) {
+    toast('Lütfen bir CSV dosyası seçin.', 'error');
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const text = e.target.result;
+    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+
+    csvParsedQuestions = [];
+    let startIdx = 0;
+
+    // İlk satır başlık satırı mı kontrol et
+    const firstLine = lines[0].toLowerCase();
+    if (firstLine.includes('soru') && firstLine.includes('dogru')) {
+      startIdx = 1; // Başlık satırını atla
+    }
+
+    for (let i = startIdx; i < lines.length; i++) {
+      const parts = lines[i].split(';');
+      if (parts.length < 6) continue;
+
+      const q = {
+        soru: parts[0]?.trim() || '',
+        a: parts[1]?.trim() || '',
+        b: parts[2]?.trim() || '',
+        c: parts[3]?.trim() || '',
+        d: parts[4]?.trim() || '',
+        dogru: (parts[5]?.trim() || '').toLowerCase(),
+        resim: parts[6]?.trim() || ''
+      };
+
+      if (q.soru && q.a && q.b && q.c && q.d && ['a','b','c','d'].includes(q.dogru)) {
+        csvParsedQuestions.push(q);
+      }
+    }
+
+    if (csvParsedQuestions.length === 0) {
+      preview.innerHTML = '<p style="color:#ff5f52;">Geçerli soru bulunamadı. Format: soru;a;b;c;d;dogru;resim</p>';
+      preview.style.display = 'block';
+      uploadBtn.style.display = 'none';
+      return;
+    }
+
+    // Önizleme tablosu oluştur
+    preview.innerHTML = `
+      <p style="color:#00e676; font-weight:700; margin-bottom:10px;">✅ ${csvParsedQuestions.length} soru tespit edildi</p>
+      <div style="max-height:300px; overflow-y:auto; border-radius:12px; border:1px solid rgba(0,255,255,0.2);">
+        <table class="data-table">
+          <thead><tr><th>#</th><th>Soru</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Doğru</th></tr></thead>
+          <tbody>${csvParsedQuestions.map((q, i) => `
+            <tr>
+              <td>${i+1}</td>
+              <td>${q.soru.substring(0,40)}${q.soru.length > 40 ? '...' : ''}</td>
+              <td>${q.a.substring(0,15)}</td>
+              <td>${q.b.substring(0,15)}</td>
+              <td>${q.c.substring(0,15)}</td>
+              <td>${q.d.substring(0,15)}</td>
+              <td style="text-transform:uppercase; font-weight:800; color:#00FFFF;">${q.dogru}</td>
+            </tr>
+          `).join('')}</tbody>
+        </table>
+      </div>
+    `;
+    preview.style.display = 'block';
+    uploadBtn.style.display = 'inline-flex';
+    document.getElementById('csv-count').textContent = csvParsedQuestions.length;
+  };
+  reader.readAsText(fileInput.files[0], 'UTF-8');
+}
+
+async function uploadCSV() {
+  if (csvParsedQuestions.length === 0) {
+    toast('Önce CSV dosyasını önizleyin.', 'error');
+    return;
+  }
+
+  const category = document.getElementById('csv-category').value;
+  if (!category) { toast('Kategori seçin.', 'error'); return; }
+
+  const res = await fetch('api_admin.php?action=bulk_add_questions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ category, questions: csvParsedQuestions })
+  });
+  const data = await res.json();
+  toast(data.message, data.status === 'success' ? 'success' : 'error');
+
+  if (data.status === 'success') {
+    csvParsedQuestions = [];
+    document.getElementById('csv-preview').style.display = 'none';
+    document.getElementById('csv-upload-btn').style.display = 'none';
+    document.getElementById('csv-file').value = '';
+    loadQuestions();
+  }
+}
+
+// ===== METİN TOPLU SORU EKLEME =====
+async function parseBulkText() {
+  const text = document.getElementById('bulk-text').value.trim();
+  const category = document.getElementById('bulk-category').value;
+  const statusEl = document.getElementById('bulk-status');
+
+  if (!category) { toast('Kategori seçin.', 'error'); return; }
+  if (!text) { toast('Soru metni giriniz.', 'error'); return; }
+
+  // Soruları parse et
+  // Her soru bloğunu "S:" ile ayır
+  const blocks = text.split(/\n\s*\n/).filter(b => b.trim().length > 0);
+  const questions = [];
+
+  for (const block of blocks) {
+    const lines = block.trim().split('\n').map(l => l.trim());
+    const q = { soru: '', a: '', b: '', c: '', d: '', dogru: '', resim: '' };
+
+    for (const line of lines) {
+      if (/^S:\s*/i.test(line)) q.soru = line.replace(/^S:\s*/i, '');
+      else if (/^A:\s*/i.test(line)) q.a = line.replace(/^A:\s*/i, '');
+      else if (/^B:\s*/i.test(line)) q.b = line.replace(/^B:\s*/i, '');
+      else if (/^C:\s*/i.test(line)) q.c = line.replace(/^C:\s*/i, '');
+      else if (/^D:\s*/i.test(line)) q.d = line.replace(/^D:\s*/i, '');
+      else if (/^(Doğru|Dogru|Cevap):\s*/i.test(line)) q.dogru = line.replace(/^(Doğru|Dogru|Cevap):\s*/i, '').toLowerCase();
+      else if (/^Resim:\s*/i.test(line)) q.resim = line.replace(/^Resim:\s*/i, '');
+    }
+
+    if (q.soru && q.a && q.b && q.c && q.d && ['a','b','c','d'].includes(q.dogru)) {
+      questions.push(q);
+    }
+  }
+
+  if (questions.length === 0) {
+    toast('Geçerli soru bulunamadı. Formatı kontrol edin.', 'error');
+    statusEl.textContent = '❌ 0 geçerli soru';
+    return;
+  }
+
+  statusEl.textContent = `⏳ ${questions.length} soru yükleniyor...`;
+
+  const res = await fetch('api_admin.php?action=bulk_add_questions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ category, questions })
+  });
+  const data = await res.json();
+  toast(data.message, data.status === 'success' ? 'success' : 'error');
+  statusEl.textContent = `✅ ${data.success_count || 0} soru eklendi` + (data.error_count > 0 ? `, ${data.error_count} hatalı` : '');
+
+  if (data.status === 'success') {
+    document.getElementById('bulk-text').value = '';
+    loadQuestions();
+  }
+}
+
 // ===== KULLANICILAR =====
 async function loadUsers() {
   const res = await fetch('api_admin.php?action=get_users');
@@ -227,8 +471,78 @@ async function loadUsers() {
   document.getElementById('users-table').innerHTML = `<table class="data-table"><thead><tr><th>#</th><th>Kullanıcı</th><th>E-posta</th><th>Rol</th><th>Skor</th><th>Quiz</th></tr></thead><tbody>${users.map(u => `<tr><td>${u.id}</td><td>${u.username}</td><td>${u.email}</td><td style="color:${u.role==='admin'?'#ffcc3c':'#00FFFF'};font-weight:700">${u.role}</td><td>${u.score}</td><td>${u.quizzes_solved}</td></tr>`).join('')}</tbody></table>`;
 }
 
-// Sayfa yüklenince testleri yükle
+// ===== ONAY BEKLEYENLERİ =====
+async function loadPending() {
+  try {
+    const res = await fetch('api_user_question.php?action=get_pending');
+    const pending = await res.json();
+    const container = document.getElementById('pending-table');
+    const badge = document.getElementById('pending-badge');
+
+    if (pending.length > 0) {
+      badge.textContent = pending.length;
+      badge.style.display = 'inline';
+    } else {
+      badge.style.display = 'none';
+    }
+
+    if (!pending || pending.length === 0) {
+      container.innerHTML = '<p style="color:#aab6e8; text-align:center; padding:20px;">Onay bekleyen soru yok. 🎉</p>';
+      return;
+    }
+
+    container.innerHTML = pending.map(q => `
+      <div style="border:1px solid rgba(0,255,255,0.15); border-radius:16px; padding:20px; margin-bottom:16px; background:rgba(255,255,255,0.02);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <div>
+            <span style="color:#ffcc3c; font-weight:700; font-size:13px;"><i class="fa-regular fa-user"></i> ${q.username}</span>
+            <span style="color:#64748b; font-size:12px; margin-left:10px;">${q.created_at}</span>
+          </div>
+          <span style="color:#aab6e8; font-size:12px; background:rgba(0,255,255,0.1); padding:4px 10px; border-radius:8px;">${q.category}</span>
+        </div>
+        <p style="color:#fff; font-size:15px; font-weight:600; margin-bottom:12px;">${q.soru}</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px;">
+          <div style="padding:8px 12px; border-radius:10px; font-size:13px; ${q.dogru==='a' ? 'background:rgba(0,200,83,0.15); color:#00e676; border:1px solid rgba(0,200,83,0.3);' : 'background:rgba(255,255,255,0.05); color:#d9e1ff;'}"><b>A:</b> ${q.a}</div>
+          <div style="padding:8px 12px; border-radius:10px; font-size:13px; ${q.dogru==='b' ? 'background:rgba(0,200,83,0.15); color:#00e676; border:1px solid rgba(0,200,83,0.3);' : 'background:rgba(255,255,255,0.05); color:#d9e1ff;'}"><b>B:</b> ${q.b}</div>
+          <div style="padding:8px 12px; border-radius:10px; font-size:13px; ${q.dogru==='c' ? 'background:rgba(0,200,83,0.15); color:#00e676; border:1px solid rgba(0,200,83,0.3);' : 'background:rgba(255,255,255,0.05); color:#d9e1ff;'}"><b>C:</b> ${q.c}</div>
+          <div style="padding:8px 12px; border-radius:10px; font-size:13px; ${q.dogru==='d' ? 'background:rgba(0,200,83,0.15); color:#00e676; border:1px solid rgba(0,200,83,0.3);' : 'background:rgba(255,255,255,0.05); color:#d9e1ff;'}"><b>D:</b> ${q.d}</div>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button class="admin-btn primary" onclick="approveQuestion(${q.id})"><i class="fa-solid fa-check"></i> Onayla</button>
+          <button class="admin-btn danger" onclick="rejectQuestion(${q.id})"><i class="fa-solid fa-xmark"></i> Reddet</button>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {
+    console.error('Pending yükleme hatası:', e);
+  }
+}
+
+async function approveQuestion(id) {
+  const res = await fetch('api_user_question.php?action=approve', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ id })
+  });
+  const data = await res.json();
+  toast(data.message, data.status);
+  loadPending();
+}
+
+async function rejectQuestion(id) {
+  if (!confirm('Bu soruyu reddetmek istediğinize emin misiniz?')) return;
+  const res = await fetch('api_user_question.php?action=reject', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ id })
+  });
+  const data = await res.json();
+  toast(data.message, data.status);
+  loadPending();
+}
+
+// Sayfa yüklenince testleri ve bekleyen soruları yükle
 loadTests();
+loadPending();
 </script>
 </body>
 </html>
+

@@ -98,7 +98,7 @@ if (!isset($_SESSION['user_id'])) {
         </nav>
 
         <div class="actions">
-          <a href="#" class="primary-btn">
+          <a href="olustur.php" class="primary-btn">
             <i class="fa-solid fa-plus"></i>
             <span>Oluştur</span>
           </a>
