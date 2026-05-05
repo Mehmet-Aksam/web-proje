@@ -1,4 +1,19 @@
 const testBilgileri = {
+ ingilizce_test_1: {
+  baslik: "Temel Eşyalar Testi",
+  aciklama: "Temel kelime bilgisi testi",
+  sureDakika: 10
+},
+ingilizce_test_2: {
+  baslik: "Cümle Çeviri Testi",
+  aciklama: "Çeviri üzerine test",
+  sureDakika: 10
+},
+ingilizce_test_3: {
+  baslik: "Karışık Kelime Testi",
+  aciklama: "Zor seviye kelimeler",
+  sureDakika: 15
+},
   levhalar_test_1: {
     baslik: "Levhalar ve Trafik İşaretleri",
     aciklama: "Temel trafik levhaları ve uyarı işaretleri üzerine test.",
@@ -302,7 +317,7 @@ function sayaciBaslat() {
 }
 
 function testiHazirla(data) {
-  const bilgi = testBilgileri[testAdi];
+  let bilgi = testBilgileri[testAdi];
 
   if (!testAdi) {
     testBaslik.textContent = "Test seçilmedi";
@@ -312,6 +327,19 @@ function testiHazirla(data) {
     geriSoruBtn.disabled = true;
     ileriSoruBtn.disabled = true;
     return;
+  }
+
+  // Eğer test bilgisi hardcoded olarak yoksa, dinamik oluştur:
+  if (!bilgi && data && data.length > 0) {
+    const formatliBaslik = testAdi
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, l => l.toUpperCase());
+      
+    bilgi = {
+      baslik: formatliBaslik,
+      aciklama: formatliBaslik + " Testi",
+      sureDakika: 20
+    };
   }
 
   if (!bilgi || !data || data.length === 0) {
@@ -351,7 +379,7 @@ yenidenBtn.addEventListener("click", () => {
 });
 
 if (testAdi) {
-  fetch(`../api_questions.php?category=${testAdi}`)
+ fetch("http://localhost/webproje/api_questions.php?category=" + testAdi)
     .then((res) => {
       if (!res.ok) {
         throw new Error("Veritabanından sorular yüklenemedi");
@@ -372,4 +400,6 @@ if (testAdi) {
     });
 } else {
   testiHazirla(null);
+
+ 
 }
