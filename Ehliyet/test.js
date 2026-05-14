@@ -73,6 +73,31 @@ ingilizce_test_3: {
     baslik: "Karışık Trafik Adabı",
     aciklama: "Trafik adabı konularını karışık sorularla pekiştir.",
     sureDakika: 15
+  },
+  genelkultur_test_1: {
+    baslik: "Antik Çağ ve Mitoloji",
+    aciklama: "Antik uygarlıklar ve mitolojik efsaneler üzerine test.",
+    sureDakika: 15
+  },
+  genelkultur_test_2: {
+    baslik: "Yakın Çağ Tarihi",
+    aciklama: "Dünya tarihinin yakın geçmişine dair önemli olaylar.",
+    sureDakika: 20
+  },
+  genelkultur_test_3: {
+    baslik: "Osmanlı İmparatorluğu",
+    aciklama: "Osmanlı tarihi, padişahlar ve önemli savaşlar.",
+    sureDakika: 25
+  },
+  genelkultur_test_4: {
+    baslik: "Başkentler ve Bayraklar",
+    aciklama: "Ülkeler, başkentleri ve bayrakları hakkında coğrafya testi.",
+    sureDakika: 10
+  },
+  genelkultur_test_5: {
+    baslik: "Dünya Klasikleri",
+    aciklama: "Edebiyat dünyasının ölümsüz eserleri ve yazarları.",
+    sureDakika: 20
   }
 };
 

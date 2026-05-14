@@ -76,8 +76,22 @@ if ($adminCheck->num_rows == 0) {
 // 4. Testleri Ekle
 $tests = [
     ['levhalar_test_1', 'Trafik Levhaları Uzmanlık', 'Tüm levhaları kapsayan detaylı ehliyet sınavı.', 'ehliyet', 20],
-    ['genelkultur_test', 'Genel Kültür Maratonu', 'Tarih, Sanat ve Coğrafya karma testi.', 'genel_kultur', 20],
-    ['ingilizce_test', 'İngilizce Kelime Deposu', 'En çok kullanılan 1000 kelime üzerine test.', 'ingilizce', 15]
+    ['levhalar_test_2', 'Genel Trafik Kuralları', 'Trafikte uyulması gereken temel kurallar.', 'ehliyet', 25],
+    ['levhalar_test_3', 'Karışık Trafik Testi', 'Levhalar ve kurallar karma testi.', 'ehliyet', 25],
+    ['ilkyardim_test_1', 'Temel İlk Yardım Bilgisi', 'Yaralanmalarda temel müdahale.', 'ehliyet', 20],
+    ['ilkyardim_test_2', 'Kaza Anında Müdahale', 'Kaza anında yapılacaklar.', 'ehliyet', 20],
+    ['ilkyardim_test_3', 'Karışık İlk Yardım', 'İlk yardım karma deneme.', 'ehliyet', 20],
+    ['arac_test_1', 'Motor ve Parçalar', 'Araç tekniği ve motor bilgisi.', 'ehliyet', 20],
+    ['arac_test_2', 'Bakım ve Kontroller', 'Araç bakım ve kontrol süreçleri.', 'ehliyet', 20],
+    ['arac_test_3', 'Karışık Araç Tekniği', 'Motor ve teknik karma deneme.', 'ehliyet', 20],
+    ['genelkultur_test_1', 'Antik Çağ ve Mitoloji', 'Antik uygarlıklar ve mitolojik efsaneler.', 'genel_kultur', 15],
+    ['genelkultur_test_2', 'Yakın Çağ Tarihi', 'Dünya tarihinin yakın geçmişi.', 'genel_kultur', 20],
+    ['genelkultur_test_3', 'Osmanlı İmparatorluğu', 'Osmanlı tarihi ve padişahlar.', 'genel_kultur', 25],
+    ['genelkultur_test_4', 'Başkentler ve Bayraklar', 'Ülkeler, başkentleri ve bayrakları.', 'genel_kultur', 10],
+    ['genelkultur_test_5', 'Dünya Klasikleri', 'Edebiyat dünyasının ölümsüz eserleri.', 'genel_kultur', 20],
+    ['ingilizce_test_1', 'Temel Eşyalar Testi', 'Temel kelime bilgisi.', 'ingilizce', 10],
+    ['ingilizce_test_2', 'Cümle Çeviri Testi', 'Çeviri üzerine uygulama.', 'ingilizce', 10],
+    ['ingilizce_test_3', 'Karışık Kelime Testi', 'Zor seviye kelime denemesi.', 'ingilizce', 15]
 ];
 foreach($tests as $t) {
     $conn->query("INSERT IGNORE INTO tests (test_key, title, description, category, duration_minutes) VALUES ('$t[0]', '$t[1]', '$t[2]', '$t[3]', $t[4])");
