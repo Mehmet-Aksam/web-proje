@@ -1,103 +1,111 @@
 const testBilgileri = {
- ingilizce_test_1: {
-  baslik: "Temel Eşyalar Testi",
-  aciklama: "Temel kelime bilgisi testi",
-  sureDakika: 10
-},
-ingilizce_test_2: {
-  baslik: "Cümle Çeviri Testi",
-  aciklama: "Çeviri üzerine test",
-  sureDakika: 10
-},
-ingilizce_test_3: {
-  baslik: "Karışık Kelime Testi",
-  aciklama: "Zor seviye kelimeler",
-  sureDakika: 15
-},
+  ingilizce_test_1: {
+    baslik: "Temel Eşyalar Testi",
+    aciklama: "Temel kelime bilgisi testi",
+    sureDakika: 10,
+    donus: "../ingilizce.html"
+  },
+  ingilizce_test_2: {
+    baslik: "Cümle Çeviri Testi",
+    aciklama: "Çeviri üzerine test",
+    sureDakika: 10,
+    donus: "../ingilizce.html"
+  },
+  ingilizce_test_3: {
+    baslik: "Karışık Kelime Testi",
+    aciklama: "Zor seviye kelimeler",
+    sureDakika: 15,
+    donus: "../ingilizce.html"
+  },
+  ingilizce_test_4: {
+    baslik: "İngilizce Dil Testi - 4",
+    aciklama: "Dil bilgisi ve gramer üzerine pekiştirme testi.",
+    sureDakika: 20,
+    donus: "../ingilizce.html"
+  },
+  ingilizce_test_5: {
+    baslik: "İngilizce Dil Testi - 5",
+    aciklama: "Genel İngilizce kelime ve yapı deneme sınavı.",
+    sureDakika: 20,
+    donus: "../ingilizce.html"
+  },
   levhalar_test_1: {
     baslik: "Levhalar ve Trafik İşaretleri",
     aciklama: "Temel trafik levhaları ve uyarı işaretleri üzerine test.",
-    sureDakika: 25
+    sureDakika: 25,
+    donus: "ehliyet.html"
   },
   levhalar_test_2: {
     baslik: "Genel Trafik Kuralları",
     aciklama: "Trafikte uyulması gereken temel kurallar ve çevre bilgisi.",
-    sureDakika: 25
+    sureDakika: 25,
+    donus: "ehliyet.html"
   },
   levhalar_test_3: {
     baslik: "Karışık Trafik Testi",
     aciklama: "Levhalar, kurallar ve genel trafik bilgisini karışık çöz.",
-    sureDakika: 25
+    sureDakika: 25,
+    donus: "ehliyet.html"
   },
   ilkyardim_test_1: {
     baslik: "Temel İlk Yardım Bilgisi",
     aciklama: "Yaralanma ve acil durumlarda temel müdahale bilgileri.",
-    sureDakika: 20
-  },
-  ilkyardim_test_2: {
-    baslik: "Kaza Anında Müdahale",
-    aciklama: "Trafik kazalarında doğru ilk yardım adımlarını öğren.",
-    sureDakika: 20
-  },
-  ilkyardim_test_3: {
-    baslik: "Karışık İlk Yardım",
-    aciklama: "İlk yardım konularını karışık sorularla tekrar et.",
-    sureDakika: 20
+    sureDakika: 20,
+    donus: "ehliyet.html"
   },
   arac_test_1: {
-    baslik: "Motor ve Parçalar",
+    baslik: "Motor Ve Araç Tekniği",
     aciklama: "Araç motoru ve temel parçalar hakkında test soruları.",
-    sureDakika: 20
-  },
-  arac_test_2: {
-    baslik: "Bakım ve Kontroller",
-    aciklama: "Günlük araç kontrolleri ve bakım süreçleri üzerine test.",
-    sureDakika: 20
-  },
-  arac_test_3: {
-    baslik: "Karışık Araç Tekniği",
-    aciklama: "Motor, bakım ve teknik bilgileri bir arada çöz.",
-    sureDakika: 20
+    sureDakika: 20,
+    donus: "ehliyet.html"
   },
   adab_test_1: {
     baslik: "Empati ve Saygı",
     aciklama: "Trafikte diğer sürücülere ve yayalara karşı doğru davranışlar.",
-    sureDakika: 15
+    sureDakika: 15,
+    donus: "ehliyet.html"
   },
   adab_test_2: {
     baslik: "Doğru Sürüş Davranışı",
     aciklama: "Sürücü sorumluluğu ve trafik adabına uygun hareket etme.",
-    sureDakika: 15
+    sureDakika: 15,
+    donus: "ehliyet.html"
   },
   adab_test_3: {
     baslik: "Karışık Trafik Adabı",
     aciklama: "Trafik adabı konularını karışık sorularla pekiştir.",
-    sureDakika: 15
+    sureDakika: 15,
+    donus: "ehliyet.html"
   },
   genelkultur_test_1: {
     baslik: "Antik Çağ ve Mitoloji",
     aciklama: "Antik uygarlıklar ve mitolojik efsaneler üzerine test.",
-    sureDakika: 15
+    sureDakika: 15,
+    donus: "../Genel Kültür/genelkültür.html"
   },
   genelkultur_test_2: {
     baslik: "Yakın Çağ Tarihi",
     aciklama: "Dünya tarihinin yakın geçmişine dair önemli olaylar.",
-    sureDakika: 20
+    sureDakika: 20,
+    donus: "../Genel Kültür/genelkültür.html"
   },
   genelkultur_test_3: {
     baslik: "Osmanlı İmparatorluğu",
     aciklama: "Osmanlı tarihi, padişahlar ve önemli savaşlar.",
-    sureDakika: 25
+    sureDakika: 25,
+    donus: "../Genel Kültür/genelkültür.html"
   },
   genelkultur_test_4: {
     baslik: "Başkentler ve Bayraklar",
     aciklama: "Ülkeler, başkentleri ve bayrakları hakkında coğrafya testi.",
-    sureDakika: 10
+    sureDakika: 10,
+    donus: "../Genel Kültür/genelkültür.html"
   },
   genelkultur_test_5: {
     baslik: "Dünya Klasikleri",
     aciklama: "Edebiyat dünyasının ölümsüz eserleri ve yazarları.",
-    sureDakika: 20
+    sureDakika: 20,
+    donus: "../Genel Kültür/genelkültür.html"
   }
 };
 
@@ -321,7 +329,7 @@ function testiBitir() {
       wrong: yanlis,
       total: toplam
     })
-  }).catch(() => {});
+  }).catch(() => { });
 }
 
 function sayaciBaslat() {
@@ -359,7 +367,7 @@ function testiHazirla(data) {
     const formatliBaslik = testAdi
       .replace(/_/g, ' ')
       .replace(/\b\w/g, l => l.toUpperCase());
-      
+
     bilgi = {
       baslik: formatliBaslik,
       aciklama: formatliBaslik + " Testi",
@@ -381,6 +389,12 @@ function testiHazirla(data) {
   testBaslik.textContent = bilgi.baslik;
   testAciklama.textContent = bilgi.aciklama;
   kalanSure = bilgi.sureDakika * 60;
+
+  // Dönüş linklerini güncelle
+  const donusLinkleri = document.querySelectorAll('.geri-btn');
+  donusLinkleri.forEach(link => {
+    link.href = bilgi.donus || 'ehliyet.html';
+  });
 
   soruKartiniGoster();
   sayaciBaslat();
@@ -404,7 +418,7 @@ yenidenBtn.addEventListener("click", () => {
 });
 
 if (testAdi) {
- fetch("../api_questions.php?category=" + testAdi)
+  fetch("../api_questions.php?category=" + testAdi)
     .then((res) => {
       if (!res.ok) {
         throw new Error("Veritabanından sorular yüklenemedi");
@@ -412,13 +426,20 @@ if (testAdi) {
       return res.json();
     })
     .then((data) => {
+      if (!data || data.length === 0) {
+        testBaslik.textContent = "Soru Bulunamadı";
+        testAciklama.textContent = "Bu kategoriye henüz soru eklenmemiş.";
+        sorularAlani.innerHTML = "<p>Lütfen admin panelinden bu test için soru ekleyin.</p>";
+        bitirBtn.disabled = true;
+        return;
+      }
       testiHazirla(data);
     })
     .catch((err) => {
-      console.error(err);
-      testBaslik.textContent = "Veri yüklenemedi";
-      testAciklama.textContent = "Veritabanına bağlanılamadı.";
-      sorularAlani.innerHTML = "<p>Sorular yüklenirken bir hata oluştu.</p>";
+      console.error("Yükleme Hatası:", err);
+      testBaslik.textContent = "Bağlantı Hatası";
+      testAciklama.textContent = "Sunucuya veya veritabanına ulaşılamadı.";
+      sorularAlani.innerHTML = `<p>Hata Detayı: ${err.message}</p><p>Lütfen internet bağlantınızı ve sunucu durumunu kontrol edin.</p>`;
       bitirBtn.disabled = true;
       geriSoruBtn.disabled = true;
       ileriSoruBtn.disabled = true;
@@ -426,5 +447,5 @@ if (testAdi) {
 } else {
   testiHazirla(null);
 
- 
+
 }
