@@ -379,7 +379,7 @@ yenidenBtn.addEventListener("click", () => {
 });
 
 if (testAdi) {
- fetch("http://localhost/webproje/api_questions.php?category=" + testAdi)
+ fetch("../api_questions.php?category=" + testAdi)
     .then((res) => {
       if (!res.ok) {
         throw new Error("Veritabanından sorular yüklenemedi");
